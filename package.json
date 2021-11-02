@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "dev": "concurrently --kill-others --prefix-colors green,blue --names back,front \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && ./gradlew bootRun",
+    "dev:frontend": "cd frontend && npm start",
+    "test": "concurrently --prefix-colors green,blue --names back,front \"npm run test:backend\" \"npm run test:frontend\"",
+    "test:backend": "cd backend && ./gradlew test --rerun-tasks",
+    "test:frontend": "cd frontend && npm run test"
+  },
+  "devDependencies": {
+    "concurrently": "^6.3.0"
+  }
+}

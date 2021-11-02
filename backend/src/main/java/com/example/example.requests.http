@@ -1,0 +1,6 @@
+
+###
+GET {{baseUrl}}/best-rate
+
+###
+GET {{baseUrl}}/allocations?amount=1.05

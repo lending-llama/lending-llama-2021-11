@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="all tests" type="CompoundRunConfigurationType">
+    <toRun name="all backend tests" type="GradleRunConfiguration" />
+    <toRun name="all frontend tests" type="JavaScriptTestRunnerJest" />
+    <method v="2" />
+  </configuration>
+</component>

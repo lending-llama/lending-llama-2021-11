@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Ledn",
+    "website": "https://ledn.io/",
+    "ratesDetails": "https://ledn.io/legal/en/rates-terms",
+    "tiers": [
+      {"rate": 6.25, "max":  1},
+      {"rate":  2.25}
+    ]
+  },
+  {
+    "name": "BlockFi",
+    "website": "https://blockfi.com/",
+    "ratesDetails": "https://blockfi.com/rates/",
+    "tiers": [
+      {"rate":  4.5, "max": 0.1},
+      {"rate":  1.0, "max": 0.35},
+      {"rate":  0.1}
+    ]
+  }
+]

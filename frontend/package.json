@@ -1,0 +1,38 @@
+{
+  "scripts": {
+    "start": "snowpack dev --polyfill-node",
+    "build": "snowpack build",
+    "test": "jest"
+  },
+  "devDependencies_doc": {
+    "snowpack": "Versions 3.8.7 & .8 have trouble with different versions of same library, cp. https://github.com/snowpackjs/snowpack/issues?q=is%3Aissue+is%3Aopen+ENOENT, specifically https://github.com/snowpackjs/snowpack/issues/3785"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "@snowpack/plugin-postcss": "^1.4.3",
+    "@snowpack/plugin-react-refresh": "^2.5.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
+    "babel-jest": "^27.3.1",
+    "http2-proxy": "^5.0.53",
+    "jest": "^27.3.1",
+    "nock": "^13.1.4",
+    "postcss": "^8.3.11",
+    "react-test-renderer": "^17.0.2",
+    "snowpack": "^3.8.6",
+    "whatwg-fetch": "^3.6.2"
+  },
+  "dependencies": {
+    "@heroicons/react": "^1.0.5",
+    "@splitsoftware/splitio": "^10.16.0",
+    "@tailwindcss/forms": "^0.3.4",
+    "ramda": "^0.27.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.1",
+    "tailwindcss": "^2.2.17"
+  },
+  "private": true
+}
