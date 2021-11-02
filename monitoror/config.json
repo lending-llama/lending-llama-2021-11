@@ -20,7 +20,7 @@
     },
     {
       "type": "GITHUB-CHECKS",
-      "params": {"owner": "alexbepple", "repository": "lending-llama", "ref": "main"}
+      "params": {"owner": "lending-llama", "repository": "lending-llama", "ref": "main"}
     }
   ]
 }
