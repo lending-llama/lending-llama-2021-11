@@ -47,26 +47,24 @@ public class AllocationController {
     private List<PlatformTier> getPlatformTiersDescByRate() {
         String url = "https://priceless-khorana-4dd263.netlify.app/btc-rates.json";
         Platform[] platforms = restTemplate.getForObject(url, Platform[].class);
+        return extractBestRateTiers(platforms)
+            .collect(Collectors.toList());
+    }
+
+    static Stream<PlatformTier> extractBestRateTiers(Platform[] platforms) {
         return stream(platforms).flatMap(p -> stream(p.getTiers()).map(t ->
                 new PlatformTier()
                     .setName(p.getName())
                     .setRate(t.getRate())
                     .setMax(t.getMax())
             ))
-            .sorted(Comparator.comparingDouble(PlatformTier::getRate).reversed())
-            .collect(Collectors.toList());
+            .sorted(Comparator.comparingDouble(PlatformTier::getRate).reversed());
     }
 
     public Allocation getBestEthRate() {
         String url = "https://priceless-khorana-4dd263.netlify.app/eth-rates.json";
         Platform[] platforms = restTemplate.getForObject(url, Platform[].class);
-        List<PlatformTier> platformTiers = stream(platforms).flatMap(p -> stream(p.getTiers()).map(t ->
-                new PlatformTier()
-                    .setName(p.getName())
-                    .setRate(t.getRate())
-                    .setMax(t.getMax())
-            ))
-            .sorted(Comparator.comparingDouble(PlatformTier::getRate).reversed())
+        List<PlatformTier> platformTiers = extractBestRateTiers(platforms)
             .collect(Collectors.toList());
 
         PlatformTier tier1 = platformTiers.get(0);
