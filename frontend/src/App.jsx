@@ -1,11 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Card, CardWithHeader} from "./components/presentation";
-import {AllocationsTable} from "./components/presentation/AllocationsTable";
-import {errorsAdded} from "./actions/errors";
 import {FEATURES} from "./features";
-import {bestRateFetched, multipleTiersFetched} from "./actions/allocations";
-import {AmountInput} from "./components/presentation/AmountInput";
+import {bestRateFetched} from "./actions/allocations";
+import {AllocationsCard} from "./components/container/AllocationsCard";
 
 export function formatRate(rate) {
   return rate.toFixed(2) + "%";
@@ -32,39 +30,6 @@ export const BestRateCard = () => {
     )}
     </Card>
   )
-}
-
-export function fetchAllocations(amount) {
-  if (amount === "") {
-    return Promise.resolve([]);
-  }
-  return fetch(`/api/allocations?amount=${amount}`)
-    .then(async x => {
-      if (x.status >= 400) {
-        throw new Error(await x.text())
-      }
-      return x
-    })
-    .then(x => x.json());
-}
-
-function AllocationsCard() {
-  const dispatch = useDispatch()
-
-  const [amount, setAmount] = useState(0.1);
-
-  const allocations = useSelector(x=>x.allocations.multipleTiers)
-
-  useEffect(() => {
-    fetchAllocations(amount)
-      .then(x=>dispatch(multipleTiersFetched(x)))
-      .catch(e => dispatch(errorsAdded(e.message)))
-  }, [amount])
-
-  return <Card>
-    <AmountInput value={amount} onChange={e => setAmount(e.target.value)}/>
-    <div className="pt-4"><AllocationsTable allocations={allocations}/></div>
-  </Card>;
 }
 
 function InfoCard(props) {
