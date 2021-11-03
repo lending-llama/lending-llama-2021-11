@@ -3,13 +3,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {Card, CardWithHeader} from "./components/presentation";
 import {FEATURES} from "./features";
 import {bestRateFetched} from "./actions/allocations";
-import {AllocationsCard} from "./components/container/AllocationsCard";
+import {AllocationsCalculator} from "./components/container/AllocationsCalculator";
 
 export function formatRate(rate) {
   return rate.toFixed(2) + "%";
 }
 
-export const BestRateCard = () => {
+export const BestRateInfo = () => {
   const dispatch = useDispatch()
 
   const bestAllocation = useSelector(x=>x.allocations.bestRate)
@@ -20,7 +20,7 @@ export const BestRateCard = () => {
   }, [])
 
   return (
-    <Card>
+    <>
       Best rate: {bestAllocation.rate && (
       <>
         <span data-testid="allocation-c020b901">
@@ -28,13 +28,13 @@ export const BestRateCard = () => {
         </span> {bestAllocation.name}
       </>
     )}
-    </Card>
+    </>
   )
 }
 
-function InfoCard(props) {
+function InfoCard() {
   return <CardWithHeader header="Public Service Announcement">
-    <p>{props.children}</p>
+    <p>WAGMI</p>
   </CardWithHeader>;
 }
 
@@ -43,15 +43,15 @@ export const App = () => {
 
   return (
     <>
-      <BestRateCard/>
+      <Card><BestRateInfo/></Card>
       {features[FEATURES.MULTIPLE_TIERS] === "on"
         ? <div className="pt-2">
-          <AllocationsCard />
-        </div>
+            <Card><AllocationsCalculator/></Card>
+          </div>
         : null
       }
       <div className="pt-2">
-        <InfoCard>WAGMI</InfoCard>
+        <InfoCard/>
       </div>
     </>
   );

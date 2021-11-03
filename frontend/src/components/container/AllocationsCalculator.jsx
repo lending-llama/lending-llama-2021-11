@@ -2,7 +2,6 @@ import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
 import {multipleTiersFetched} from "../../actions/allocations";
 import {errorsAdded} from "../../actions/errors";
-import {Card} from "../presentation";
 import {AmountInput} from "../presentation/AmountInput";
 import {AllocationsTable} from "../presentation/AllocationsTable";
 
@@ -20,7 +19,7 @@ export function fetchAllocations(amount) {
     .then(x => x.json());
 }
 
-export function AllocationsCard() {
+export function AllocationsCalculator() {
   const dispatch = useDispatch()
 
   const [amount, setAmount] = useState(0.1);
@@ -33,8 +32,8 @@ export function AllocationsCard() {
       .catch(e => dispatch(errorsAdded(e.message)))
   }, [amount])
 
-  return <Card>
+  return <>
     <AmountInput value={amount} onChange={e => setAmount(e.target.value)}/>
     <div className="pt-4"><AllocationsTable allocations={allocations}/></div>
-  </Card>;
+  </>;
 }
