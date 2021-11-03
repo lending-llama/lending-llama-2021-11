@@ -1,5 +1,5 @@
 import React from "react";
-import {ErrorAlert} from "./ErrorAlert";
+import {ErrorAlert} from "./components/container/ErrorAlert";
 
 // stripped down from starting point: Tailwind UI: "Light nav on gray background"
 // https://tailwindui.com/components/application-ui/application-shells/stacked#component-7022793f3a06d980f7d7f8394a057092

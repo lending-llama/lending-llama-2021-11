@@ -1,12 +1,9 @@
+import {XCircleIcon} from "@heroicons/react/solid";
 import React from "react";
-import {XCircleIcon} from '@heroicons/react/solid'
-import {useDispatch, useSelector} from "react-redux";
-import * as r from 'ramda'
-import {errorsDismissedFirst} from "./actions/errors";
 
 // https://tailwindui.com/components/application-ui/feedback/alerts
 
-const ErrorAlertPresentation = ({msg, onDismiss}) => (
+export const ErrorAlertPresentation = ({msg, onDismiss}) => (
   <div className="rounded-md bg-red-50 p-4">
     <div className="flex">
       <div className="flex-shrink-0">
@@ -32,14 +29,3 @@ const ErrorAlertPresentation = ({msg, onDismiss}) => (
     </div>
   </div>
 );
-
-export const ErrorAlert = () => {
-  const errors = useSelector(x => x.errors)
-  const dispatch = useDispatch()
-
-  if (r.isEmpty(errors)) { return null }
-  return <ErrorAlertPresentation
-    msg={r.head(errors)}
-    onDismiss={() => dispatch(errorsDismissedFirst())}
-  />;
-};
