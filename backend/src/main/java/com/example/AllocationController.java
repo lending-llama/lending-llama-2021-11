@@ -10,7 +10,6 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.Arrays.stream;
@@ -40,38 +39,30 @@ public class AllocationController {
 
         List<PlatformTier> platformTiers = getPlatformTiersDescByRate();
 
-        int count = (int) IntStream.range(1, platformTiers.size())
-            .takeWhile(i -> platformTiers.stream().limit(i).mapToDouble(PlatformTier::getMax).sum() < amount)
-            .count();
-
-        return platformTiers.subList(0, count+1).stream().map(
-            t -> new Allocation().setName(t.getName()).setRate(t.getRate())
-        );
+        return AllocationSelector.getAllocations(amount, platformTiers);
     }
 
     private List<PlatformTier> getPlatformTiersDescByRate() {
         String url = "https://priceless-khorana-4dd263.netlify.app/btc-rates.json";
         Platform[] platforms = restTemplate.getForObject(url, Platform[].class);
+        return extractBestRateTiers(platforms)
+            .collect(Collectors.toList());
+    }
+
+    static Stream<PlatformTier> extractBestRateTiers(Platform[] platforms) {
         return stream(platforms).flatMap(p -> stream(p.getTiers()).map(t ->
                 new PlatformTier()
                     .setName(p.getName())
                     .setRate(t.getRate())
                     .setMax(t.getMax())
             ))
-            .sorted(Comparator.comparingDouble(PlatformTier::getRate).reversed())
-            .collect(Collectors.toList());
+            .sorted(Comparator.comparingDouble(PlatformTier::getRate).reversed());
     }
 
     public Allocation getBestEthRate() {
         String url = "https://priceless-khorana-4dd263.netlify.app/eth-rates.json";
         Platform[] platforms = restTemplate.getForObject(url, Platform[].class);
-        List<PlatformTier> platformTiers = stream(platforms).flatMap(p -> stream(p.getTiers()).map(t ->
-                new PlatformTier()
-                    .setName(p.getName())
-                    .setRate(t.getRate())
-                    .setMax(t.getMax())
-            ))
-            .sorted(Comparator.comparingDouble(PlatformTier::getRate).reversed())
+        List<PlatformTier> platformTiers = extractBestRateTiers(platforms)
             .collect(Collectors.toList());
 
         PlatformTier tier1 = platformTiers.get(0);
