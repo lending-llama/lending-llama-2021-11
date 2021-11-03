@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {Card, CardWithHeader, InputWithLabel} from "./presentation";
-import {AllocationsTable} from "./presentation/AllocationsTable";
+import {Card, CardWithHeader, InputWithLabel} from "./components/presentation";
+import {AllocationsTable} from "./components/presentation/AllocationsTable";
 import {errorsAdded} from "./actions/errors";
 import {FEATURES} from "./features";
 import {bestRateFetched, multipleTiersFetched} from "./actions/allocations";
