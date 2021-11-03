@@ -5,6 +5,7 @@ import {AllocationsTable} from "./presentation/AllocationsTable";
 import {errorsAdded} from "./actions/errors";
 import {FEATURES} from "./features";
 import {bestRateFetched, multipleTiersFetched} from "./actions/allocations";
+import * as PropTypes from "prop-types";
 
 export function formatRate(rate) {
   return rate.toFixed(2) + "%";
@@ -47,6 +48,48 @@ export function fetchAllocations(amount) {
     .then(x => x.json());
 }
 
+function AmountInput(props) {
+  return <InputWithLabel
+    name="amount"
+    label="BTC Amount"
+    type="number"
+    value={props.value}
+    step="0.1"
+    placeholder="Amount of BTC you want to lend"
+    onChange={props.onChange}
+  />;
+}
+
+AmountInput.propTypes = {
+  value: PropTypes.number,
+  onChange: PropTypes.func
+};
+
+function RateTable(props) {
+  return <div className="pt-4"><AllocationsTable allocations={props.allocations}/></div>;
+}
+
+RateTable.propTypes = {allocations: PropTypes.any};
+
+function AllocationsCard(props) {
+  return <Card>
+    <AmountInput value={props.currencyAmount} onChange={props.onChange}/>
+    <RateTable allocations={props.allocations}/>
+  </Card>;
+}
+
+AllocationsCard.propTypes = {
+  value: PropTypes.number,
+  onChange: PropTypes.func,
+  allocations: PropTypes.any
+};
+
+function InfoCard(props) {
+  return <Card>
+    <p>{props.children}</p>
+  </Card>;
+}
+
 export const App = () => {
   const dispatch = useDispatch()
 
@@ -67,25 +110,12 @@ export const App = () => {
       <BestRateCard/>
       {features[FEATURES.MULTIPLE_TIERS] === "on"
         ? <div className="pt-2">
-            <Card>
-              <InputWithLabel
-                name="amount"
-                label="BTC Amount"
-                type="number"
-                value={amount}
-                step="0.1"
-                placeholder="Amount of BTC you want to lend"
-                onChange={e => setAmount(e.target.value)}
-              />
-              <div className="pt-4"><AllocationsTable allocations={allocations}/></div>
-            </Card>
-          </div>
+          <AllocationsCard currencyAmount={amount} onChange={e => setAmount(e.target.value)} allocations={allocations}/>
+        </div>
         : null
       }
       <div className="pt-2">
-        <Card>
-          <p>WAGMI</p>
-        </Card>
+        <InfoCard>WAGMI</InfoCard>
       </div>
     </>
   );
