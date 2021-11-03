@@ -6,6 +6,10 @@ import {errorsAdded} from "./actions/errors";
 import {FEATURES} from "./features";
 import {bestRateFetched, multipleTiersFetched} from "./actions/allocations";
 
+export function formatRate(rate) {
+  return rate.toFixed(2) + "%";
+}
+
 export const App = () => {
   const dispatch = useDispatch()
 
@@ -36,7 +40,7 @@ export const App = () => {
     <>
       <div data-testid="allocation-c020b901">
         <Card>
-          Best rate: {bestAllocation.rate && bestAllocation.rate.toFixed(2)}% ({bestAllocation.name})
+          Best rate: {bestAllocation.rate && formatRate(bestAllocation.rate)} ({bestAllocation.name})
         </Card>
       </div>
       {features[FEATURES.MULTIPLE_TIERS] === "on"

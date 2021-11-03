@@ -1,7 +1,7 @@
 import nock from 'nock'
 import {render, waitFor} from "@testing-library/react";
 import React from "react";
-import {App} from "./App";
+import {App, formatRate} from "./App";
 import {Provider} from "react-redux";
 import {createOwnStore} from "./redux";
 import 'whatwg-fetch' // sets global.fetch
@@ -21,16 +21,10 @@ describe('Llending Llama UI', () => {
     await new Promise((resolve) => setTimeout(resolve, 10));
     expect(c.getByTestId('allocation-c020b901')).toHaveTextContent('7.00%') // .00 because of other test
   })
+})
 
-  it('works with 3 decimal places', async () => {
-    nock(/./)
-      .get('/api/best-rate')
-      .reply(200, {name: 'foo', rate: 7.168})
-    nock(/./).get(x => x.includes('/allocation')).reply(200, [])
-
-    const c = render(<Provider store={createOwnStore()}><App/></Provider>);
-    await waitFor(() => c.getByText('foo', {exact:false}))
-    await new Promise((resolve) => setTimeout(resolve, 10));
-    expect(c.getByTestId('allocation-c020b901')).toHaveTextContent('7.17%')
+describe("Rate formatting", () => {
+  it('formats 3 decimal places to 2', () => {
+    expect(formatRate(7.168)).toEqual("7.17%")
   })
 })
