@@ -17,8 +17,7 @@ export const BestRateCard = (props) => {
       <>
         <span data-testid="allocation-c020b901">
           {formatRate(props.bestAllocation.rate)}
-        </span>
-        {props.bestAllocation.name})}
+        </span> {props.bestAllocation.name}
       </>
     )}
     </Card>
@@ -53,7 +52,7 @@ export const App = () => {
 
   return (
     <>
-      <BestRateCard/>
+      <BestRateCard bestAllocation={bestAllocation} />
       {features[FEATURES.MULTIPLE_TIERS] === "on"
         ? <div className="pt-2">
             <Card>
