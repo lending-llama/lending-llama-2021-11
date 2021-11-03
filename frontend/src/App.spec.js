@@ -11,7 +11,12 @@ describe('Llending Llama UI', () => {
   beforeEach(nock.cleanAll)
 
   it('Renders best rate', async () => {
-    const c = render(<BestRateCard bestAllocation={{name: 'foo', rate: 7}}/>);
+    nock(/./)
+      .get('/api/best-rate')
+      .reply(200, {name: 'foo', rate: 7})
+
+    const c = render(<Provider store={createOwnStore()}><BestRateCard/></Provider>);
+    await waitFor(() => c.getByText('foo', {exact:false}))
     expect(c.getByTestId('allocation-c020b901')).toHaveTextContent(/7\.0./)
   })
 })
