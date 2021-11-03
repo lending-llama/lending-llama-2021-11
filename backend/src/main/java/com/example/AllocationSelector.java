@@ -13,7 +13,7 @@ public class AllocationSelector {
         final List<PlatformTier> sorted = platformTiers.stream().sorted(Comparator.comparingDouble(PlatformTier::getRate).reversed()).collect(Collectors.toList());
 
         int count = (int) IntStream.range(1, sorted.size())
-            .takeWhile(i -> sorted.stream().limit(i).mapToDouble(PlatformTier::getMax).sum() < amount)
+            .takeWhile(i -> sorted.stream().limit(i).map(PlatformTier::getMax).mapToDouble(d -> d == null ? Double.MAX_VALUE : d).sum() < amount)
             .count();
 
         return sorted.subList(0, count+1).stream().map(
