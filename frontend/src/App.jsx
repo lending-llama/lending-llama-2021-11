@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {Card, CardWithHeader, InputWithLabel} from "./components/presentation";
+import {Card, CardWithHeader} from "./components/presentation";
 import {AllocationsTable} from "./components/presentation/AllocationsTable";
 import {errorsAdded} from "./actions/errors";
 import {FEATURES} from "./features";
 import {bestRateFetched, multipleTiersFetched} from "./actions/allocations";
-import * as PropTypes from "prop-types";
+import {AmountInput} from "./components/presentation/AmountInput";
 
 export function formatRate(rate) {
   return rate.toFixed(2) + "%";
@@ -47,23 +47,6 @@ export function fetchAllocations(amount) {
     })
     .then(x => x.json());
 }
-
-function AmountInput(props) {
-  return <InputWithLabel
-    name="amount"
-    label="BTC Amount"
-    type="number"
-    value={props.value}
-    step="0.1"
-    placeholder="Amount of BTC you want to lend"
-    onChange={props.onChange}
-  />;
-}
-
-AmountInput.propTypes = {
-  value: PropTypes.number,
-  onChange: PropTypes.func
-};
 
 function AllocationsCard() {
   const dispatch = useDispatch()
