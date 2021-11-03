@@ -10,6 +10,21 @@ export function formatRate(rate) {
   return rate.toFixed(2) + "%";
 }
 
+export const BestRateCard = (props) => {
+  return (
+    <Card>
+      Best rate: {props.bestAllocation.rate && (
+      <>
+        <span data-testid="allocation-c020b901">
+          {formatRate(props.bestAllocation.rate)}
+        </span>
+        {props.bestAllocation.name})}
+      </>
+    )}
+    </Card>
+  )
+}
+
 export const App = () => {
   const dispatch = useDispatch()
 
@@ -38,11 +53,7 @@ export const App = () => {
 
   return (
     <>
-      <div data-testid="allocation-c020b901">
-        <Card>
-          Best rate: {bestAllocation.rate && formatRate(bestAllocation.rate)} ({bestAllocation.name})
-        </Card>
-      </div>
+      <BestRateCard/>
       {features[FEATURES.MULTIPLE_TIERS] === "on"
         ? <div className="pt-2">
             <Card>
