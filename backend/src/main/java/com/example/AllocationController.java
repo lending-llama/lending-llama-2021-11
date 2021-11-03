@@ -11,7 +11,6 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.Arrays.stream;
@@ -42,13 +41,7 @@ public class AllocationController {
 
         List<PlatformTier> platformTiers = getPlatformTiersDescByRate();
 
-        int count = (int) IntStream.range(1, platformTiers.size())
-            .takeWhile(i -> platformTiers.stream().limit(i).mapToDouble(PlatformTier::getMax).sum() < amount)
-            .count();
-
-        return platformTiers.subList(0, count+1).stream().map(
-            t -> new Allocation().setName(t.getName()).setRate(t.getRate())
-        );
+        return AllocationSelector.getAllocations(amount, platformTiers);
     }
 
     private List<PlatformTier> getPlatformTiersDescByRate() {
