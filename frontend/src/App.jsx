@@ -33,19 +33,29 @@ export const BestRateCard = () => {
   )
 }
 
+export function fetchAllocations(amount) {
+  if (amount === "") {
+    return Promise.resolve([]);
+  }
+  return fetch(`/api/allocations?amount=${amount}`)
+    .then(async x => {
+      if (x.status >= 400) {
+        throw new Error(await x.text())
+      }
+      return x
+    })
+    .then(x => x.json());
+}
+
 export const App = () => {
   const dispatch = useDispatch()
 
   const [amount, setAmount] = useState(0.1);
 
   const allocations = useSelector(x=>x.allocations.multipleTiers)
+
   useEffect(() => {
-    fetch(`/api/allocations?amount=${amount}`)
-      .then(async x => {
-        if (x.status >= 400) {throw new Error(await x.text())}
-        return x
-      })
-      .then(x=>x.json())
+    fetchAllocations(amount)
       .then(x=>dispatch(multipleTiersFetched(x)))
       .catch(e => dispatch(errorsAdded(e.message)))
   }, [amount])
