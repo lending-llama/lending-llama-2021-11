@@ -1,7 +1,7 @@
 import nock from 'nock'
 import {render, waitFor} from "@testing-library/react";
 import React from "react";
-import {App, BestRateCard, formatRate} from "./App";
+import {App, BestRateCard, fetchAllocations, formatRate} from "./App";
 import {Provider} from "react-redux";
 import {createOwnStore} from "./redux";
 import 'whatwg-fetch' // sets global.fetch
@@ -26,3 +26,9 @@ describe("Rate formatting", () => {
     expect(formatRate(7.168)).toEqual("7.17%")
   })
 })
+
+describe("Fetch Allocations", () => {
+  it("should return no allocations if input is not set", async () => {
+    expect(await fetchAllocations("")).toEqual([]);
+  });
+});
