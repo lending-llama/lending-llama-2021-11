@@ -65,32 +65,7 @@ AmountInput.propTypes = {
   onChange: PropTypes.func
 };
 
-function RateTable(props) {
-  return <div className="pt-4"><AllocationsTable allocations={props.allocations}/></div>;
-}
-
-RateTable.propTypes = {allocations: PropTypes.any};
-
-function AllocationsCard(props) {
-  return <Card>
-    <AmountInput value={props.currencyAmount} onChange={props.onChange}/>
-    <RateTable allocations={props.allocations}/>
-  </Card>;
-}
-
-AllocationsCard.propTypes = {
-  value: PropTypes.number,
-  onChange: PropTypes.func,
-  allocations: PropTypes.any
-};
-
-function InfoCard(props) {
-  return <CardWithHeader header="Public Service Announcement">
-    <p>{props.children}</p>
-  </CardWithHeader>;
-}
-
-export const App = () => {
+function AllocationsCard() {
   const dispatch = useDispatch()
 
   const [amount, setAmount] = useState(0.1);
@@ -103,6 +78,19 @@ export const App = () => {
       .catch(e => dispatch(errorsAdded(e.message)))
   }, [amount])
 
+  return <Card>
+    <AmountInput value={amount} onChange={e => setAmount(e.target.value)}/>
+    <div className="pt-4"><AllocationsTable allocations={allocations}/></div>
+  </Card>;
+}
+
+function InfoCard(props) {
+  return <CardWithHeader header="Public Service Announcement">
+    <p>{props.children}</p>
+  </CardWithHeader>;
+}
+
+export const App = () => {
   const features = useSelector(x => x.features)
 
   return (
@@ -110,7 +98,7 @@ export const App = () => {
       <BestRateCard/>
       {features[FEATURES.MULTIPLE_TIERS] === "on"
         ? <div className="pt-2">
-          <AllocationsCard currencyAmount={amount} onChange={e => setAmount(e.target.value)} allocations={allocations}/>
+          <AllocationsCard />
         </div>
         : null
       }
