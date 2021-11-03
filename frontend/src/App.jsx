@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {Card, InputWithLabel} from "./presentation";
+import {Card, CardWithHeader, InputWithLabel} from "./presentation";
 import {AllocationsTable} from "./presentation/AllocationsTable";
 import {errorsAdded} from "./actions/errors";
 import {FEATURES} from "./features";
@@ -85,9 +85,9 @@ AllocationsCard.propTypes = {
 };
 
 function InfoCard(props) {
-  return <Card>
+  return <CardWithHeader header="Public Service Announcement">
     <p>{props.children}</p>
-  </Card>;
+  </CardWithHeader>;
 }
 
 export const App = () => {
