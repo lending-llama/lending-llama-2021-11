@@ -31,6 +31,9 @@ public class AllocationControllerAllocationTest {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    FeatureToggleState featureToggleState;
+
     private MockRestServiceServer mockServer;
 
     @BeforeEach
@@ -49,6 +52,8 @@ public class AllocationControllerAllocationTest {
             new Allocation().setName("Ledn").setRate(6.25),
             new Allocation().setName("BlockFi").setRate(4.5)
         );
+
+        featureToggleState.update("multiple-tiers", true);
 
         Platform ledn = new Platform()
             .setName("Ledn")

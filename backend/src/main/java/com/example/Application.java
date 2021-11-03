@@ -33,7 +33,7 @@ public class Application {
             .build();
         SplitFactory splitFactory = SplitFactoryBuilder.build("reqt8c55ttivqsitjju67ikte2iamsmggagf", config);
         SplitClient splitClient = splitFactory.client();
-//        splitClient.blockUntilReady();
+        splitClient.blockUntilReady();
         return splitClient;
     }
 
@@ -42,4 +42,13 @@ public class Application {
         return builder.build();
     }
 
+    @Bean
+    public FeatureToggleState featureToggleState() {
+        return new FeatureToggleState();
+    }
+
+    @Bean
+    public FeatureToggleUpdater featureToggleUpdater(SplitClient splitClient, FeatureToggleState featureToggleState) {
+        return new FeatureToggleUpdater(splitClient, featureToggleState);
+    }
 }

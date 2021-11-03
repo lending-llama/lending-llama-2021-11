@@ -1,6 +1,5 @@
 package com.example;
 
-import io.split.client.SplitClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,11 +19,11 @@ import static java.util.Arrays.stream;
 public class AllocationController {
 
     private RestTemplate restTemplate;
-    private SplitClient splitClient;
+    private FeatureToggleState featureToggleState;
 
-    public AllocationController(RestTemplate restTemplate, SplitClient splitClient) {
+    public AllocationController(RestTemplate restTemplate, FeatureToggleState featureToggleState) {
         this.restTemplate = restTemplate;
-        this.splitClient = splitClient;
+        this.featureToggleState = featureToggleState;
     }
 
     @GetMapping("/best-rate")
@@ -35,8 +34,7 @@ public class AllocationController {
 
     @GetMapping("/allocations")
     public Stream<Allocation> getAllocation(@RequestParam Double amount) throws Exception {
-        String treatment = splitClient.getTreatment("key","multiple-tiers");
-        if (!"on".equals(treatment)) {
+        if (!featureToggleState.isEnabled("multiple-tiers")) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
 
