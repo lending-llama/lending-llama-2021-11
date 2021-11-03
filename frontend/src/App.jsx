@@ -10,15 +10,23 @@ export function formatRate(rate) {
   return rate.toFixed(2) + "%";
 }
 
-export const BestRateCard = (props) => {
+export const BestRateCard = () => {
+  const dispatch = useDispatch()
+
+  const bestAllocation = useSelector(x=>x.allocations.bestRate)
+  useEffect(() => {
+    fetch(`/api/best-rate`)
+      .then(x=>x.json())
+      .then(x=>dispatch(bestRateFetched(x)))
+  }, [])
+
   return (
     <Card>
-      Best rate: {props.bestAllocation.rate && (
+      Best rate: {bestAllocation.rate && (
       <>
         <span data-testid="allocation-c020b901">
-          {formatRate(props.bestAllocation.rate)}
-        </span>
-        {props.bestAllocation.name})}
+          {formatRate(bestAllocation.rate)}
+        </span> {bestAllocation.name}
       </>
     )}
     </Card>
@@ -29,13 +37,6 @@ export const App = () => {
   const dispatch = useDispatch()
 
   const [amount, setAmount] = useState(0.1);
-
-  const bestAllocation = useSelector(x=>x.allocations.bestRate)
-  useEffect(() => {
-    fetch(`/api/best-rate`)
-      .then(x=>x.json())
-      .then(x=>dispatch(bestRateFetched(x)))
-  }, [])
 
   const allocations = useSelector(x=>x.allocations.multipleTiers)
   useEffect(() => {
