@@ -47,20 +47,20 @@ public class AllocationControllerAllocationTest {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Test
-	public void findsBest() throws Exception {
+	public void findsBestWithOnlyLimitedRates() throws Exception {
         List<Allocation> expected = Arrays.asList(
-            new Allocation().setName("Ledn").setRate(6.25),
-            new Allocation().setName("BlockFi").setRate(4.5)
+            new Allocation().setName("Platform1").setRate(6.0),
+            new Allocation().setName("Platform2").setRate(5.0)
         );
 
         featureToggleState.update("multiple-tiers", true);
 
-        Platform ledn = new Platform()
-            .setName("Ledn")
-            .setTiers(new Platform.Tier[]{new Platform.Tier().setRate(6.25).setMax(1.0)});
-        Platform blockFi = new Platform()
-            .setName("BlockFi")
-            .setTiers(new Platform.Tier[]{new Platform.Tier().setRate(4.5).setMax(0.1)});
+        Platform platform1 = new Platform()
+            .setName("Platform1")
+            .setTiers(new Platform.Tier[]{new Platform.Tier().setRate(6.0).setMax(2.0), new Platform.Tier().setRate(2.5)});
+        Platform platform2 = new Platform()
+            .setName("Platform2")
+            .setTiers(new Platform.Tier[]{new Platform.Tier().setRate(5.0).setMax(0.5)});
 
 
         mockServer
@@ -68,10 +68,10 @@ public class AllocationControllerAllocationTest {
             .andExpect(method(HttpMethod.GET))
             .andRespond(withStatus(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(mapper.writeValueAsString(List.of(ledn, blockFi)))
+                .body(mapper.writeValueAsString(List.of(platform1, platform2)))
             );
 
-        mvc.perform(MockMvcRequestBuilders.get("/allocations?amount=1.1")
+        mvc.perform(MockMvcRequestBuilders.get("/allocations?amount=2.5")
             .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
             .andExpect(content().json(mapper.writeValueAsString(expected)));
