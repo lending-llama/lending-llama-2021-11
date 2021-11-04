@@ -1,8 +1,6 @@
-import {multipleTiersFetched} from "./actions/allocations";
 import {errorsAdded} from "./actions/errors";
-import {} from "react-redux";
 
-export function fetchJsonAndDispatchOnError(url, dispatch) {
+export function fetchJsonFromBackend(url, dispatch) {
   return fetch(url)
   .then(async x => {
     if (x.status >= 400) {

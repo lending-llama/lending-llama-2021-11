@@ -1,16 +1,15 @@
 import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
 import {multipleTiersFetched} from "../../actions/allocations";
-import {errorsAdded} from "../../actions/errors";
 import {AmountInput} from "../presentation/AmountInput";
 import {AllocationsTable} from "../presentation/AllocationsTable";
-import {fetchJsonAndDispatchOnError} from "../../fetchJsonAndDispatchOnError";
+import {fetchJsonFromBackend} from "../../fetchJsonFromBackend";
 
 export function fetchAllocations(amount, dispatch) {
   if (amount === "") {
     return Promise.resolve([]);
   }
-  return fetchJsonAndDispatchOnError(`/api/allocations?amount=${amount}`, dispatch);
+  return fetchJsonFromBackend(`/allocations?amount=${amount}`, dispatch);
 }
 
 export function AllocationsCalculator() {
