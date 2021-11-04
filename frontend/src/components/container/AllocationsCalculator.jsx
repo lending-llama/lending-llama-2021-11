@@ -4,19 +4,13 @@ import {multipleTiersFetched} from "../../actions/allocations";
 import {errorsAdded} from "../../actions/errors";
 import {AmountInput} from "../presentation/AmountInput";
 import {AllocationsTable} from "../presentation/AllocationsTable";
+import {fetchJsonAndDispatchOnError} from "../../fetchJsonAndDispatchOnError";
 
-export function fetchAllocations(amount) {
+export function fetchAllocations(amount, dispatch) {
   if (amount === "") {
     return Promise.resolve([]);
   }
-  return fetch(`/api/allocations?amount=${amount}`)
-    .then(async x => {
-      if (x.status >= 400) {
-        throw new Error(await x.text())
-      }
-      return x
-    })
-    .then(x => x.json());
+  return fetchJsonAndDispatchOnError(`/api/allocations?amount=${amount}`, dispatch);
 }
 
 export function AllocationsCalculator() {
@@ -27,9 +21,8 @@ export function AllocationsCalculator() {
   const allocations = useSelector(x=>x.allocations.multipleTiers)
 
   useEffect(() => {
-    fetchAllocations(amount)
+    fetchAllocations(amount, dispatch)
       .then(x=>dispatch(multipleTiersFetched(x)))
-      .catch(e => dispatch(errorsAdded(e.message)))
   }, [amount])
 
   return <>

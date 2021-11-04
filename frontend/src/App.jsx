@@ -4,6 +4,8 @@ import {Card, CardWithHeader} from "./components/presentation";
 import {FEATURES} from "./features";
 import {bestRateFetched} from "./actions/allocations";
 import {AllocationsCalculator} from "./components/container/AllocationsCalculator";
+import {fetchJsonAndDispatchOnError} from "./fetchJsonAndDispatchOnError";
+import {errorsAdded} from "./actions/errors";
 
 export function formatRate(rate) {
   return rate.toFixed(2) + "%";
@@ -14,8 +16,7 @@ export const BestRateInfo = () => {
 
   const bestAllocation = useSelector(x=>x.allocations.bestRate)
   useEffect(() => {
-    fetch(`/api/best-rate`)
-      .then(x=>x.json())
+    fetchJsonAndDispatchOnError(`/api/best-rate`, dispatch)
       .then(x=>dispatch(bestRateFetched(x)))
   }, [])
 
