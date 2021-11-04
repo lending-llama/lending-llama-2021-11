@@ -1,9 +1,9 @@
 import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
-import {multipleTiersFetched} from "../../actions/allocations";
-import {AmountInput} from "../presentation/AmountInput";
-import {AllocationsTable} from "../presentation/AllocationsTable";
-import {fetchJsonFromBackend} from "../../fetchJsonFromBackend";
+import {multipleTiersFetched} from "./actions";
+import {AmountInput} from "../../common/presentation/AmountInput";
+import {AllocationsTable} from "./AllocationsTable";
+import {fetchJsonFromBackend} from "../../common/http";
 
 export function fetchAllocations(amount, dispatch) {
   if (amount === "") {

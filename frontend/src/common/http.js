@@ -1,4 +1,4 @@
-import {errorsAdded} from "./actions/errors";
+import {errorsAdded} from "../features/errors/actions";
 
 export function fetchJsonFromBackend(url, dispatch) {
   return fetch("/api"+url)

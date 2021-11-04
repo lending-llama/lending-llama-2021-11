@@ -1,5 +1,5 @@
-import {errorsReducer} from "./errors";
-import {errorsAdded, errorsDismissedFirst} from "../actions/errors";
+import {errorsReducer} from "./reducers";
+import {errorsAdded, errorsDismissedFirst} from "./actions";
 
 describe('Errors reducer', () => {
   const state = ['foo']

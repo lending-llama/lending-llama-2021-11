@@ -1,5 +1,5 @@
 import * as r from "ramda"
-import {BEST_RATE_FETCHED, MULTIPLE_TIERS_FETCHED} from "../constants/allocations";
+import {BEST_RATE_FETCHED, MULTIPLE_TIERS_FETCHED} from "./constants";
 
 export const allocationsReducer = (state = {bestRate: {}, multipleTiers: []}, action) => {
   switch (action.type) {

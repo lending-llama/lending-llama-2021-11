@@ -3,7 +3,7 @@ import {render, waitFor} from "@testing-library/react";
 import React from "react";
 import {BestRateInfo, formatRate} from "./App";
 import {Provider} from "react-redux";
-import {createOwnStore} from "./redux";
+import {createOwnStore} from "../features/redux";
 import 'whatwg-fetch' // sets global.fetch
 import '@testing-library/jest-dom' // extends Jest with .toHaveTextContent
 

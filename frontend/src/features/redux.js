@@ -1,7 +1,7 @@
 import {combineReducers, createStore} from 'redux'
-import {errorsReducer} from "./reducers/errors";
-import {featuresReducer} from "./reducers/features";
-import {allocationsReducer} from "./reducers/allocations";
+import {errorsReducer} from "./errors/reducers";
+import {featuresReducer} from "./reducers";
+import {allocationsReducer} from "./allocations/reducers";
 
 export const createOwnStore = () => {return createStore( combineReducers({
     allocations: allocationsReducer,

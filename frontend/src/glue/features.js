@@ -1,6 +1,6 @@
 import {SplitFactory} from "@splitsoftware/splitio";
-import {store} from "./redux";
-import {featureChanged} from "./actions/features";
+import {store} from "../features/redux";
+import {featureChanged} from "../features/actions";
 
 export const FEATURES = {
   FIRST: "my-first-split",

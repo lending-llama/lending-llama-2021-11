@@ -1,10 +1,10 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {Card, CardWithHeader} from "./components/presentation";
+import {Card, CardWithHeader} from "../common/presentation/Panels";
 import {FEATURES} from "./features";
-import {bestRateFetched} from "./actions/allocations";
-import {AllocationsCalculator} from "./components/container/AllocationsCalculator";
-import {fetchJsonFromBackend} from "./fetchJsonFromBackend";
+import {bestRateFetched} from "../features/allocations/actions";
+import {AllocationsCalculator} from "../features/allocations/AllocationsCalculator";
+import {fetchJsonFromBackend} from "../common/http";
 
 export function myFetch(url) {
   return fetch(url)
