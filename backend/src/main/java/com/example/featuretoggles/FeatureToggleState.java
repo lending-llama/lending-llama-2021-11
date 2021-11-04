@@ -1,4 +1,4 @@
-package com.example;
+package com.example.featuretoggles;
 
 import java.util.HashMap;
 import java.util.Map;

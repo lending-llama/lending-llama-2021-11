@@ -1,4 +1,4 @@
-package com.example;
+package com.example.featuretoggles;
 
 import io.split.client.SplitClient;
 

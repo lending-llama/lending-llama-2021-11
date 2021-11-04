@@ -1,15 +1,14 @@
-package com.example;
+package com.example.marketrates;
 
-import static com.example.AllocationController.extractBestRateTiers;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
-class AllocationControllerExtractionTest {
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static com.example.marketrates.PlatformTierFetcher.extractBestRateTiers;
+import static org.assertj.core.api.Assertions.assertThat;
+
+class PlatformTierFetcherTest {
 
     @Test
     void extractBestTiersForMultipleRates() {

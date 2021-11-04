@@ -1,10 +1,11 @@
-package com.example;
+package com.example.allocations;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.example.marketrates.PlatformTier;
 import org.junit.jupiter.api.Test;
 
 class AllocationSelectorTest {

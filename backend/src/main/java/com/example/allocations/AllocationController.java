@@ -1,5 +1,9 @@
-package com.example;
+package com.example.allocations;
 
+import com.example.featuretoggles.FeatureToggleState;
+import com.example.marketrates.Platform;
+import com.example.marketrates.PlatformTier;
+import com.example.marketrates.PlatformTierFetcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,24 +21,17 @@ import static java.util.Arrays.stream;
 @RestController
 public class AllocationController {
 
-    private RestTemplate restTemplate;
+    private PlatformTierFetcher platformTierFetcher;
     private FeatureToggleState featureToggleState;
 
-    public AllocationController(RestTemplate restTemplate, FeatureToggleState featureToggleState) {
-        this.restTemplate = restTemplate;
+    public AllocationController(PlatformTierFetcher platformTierFetcher, FeatureToggleState featureToggleState) {
+        this.platformTierFetcher = platformTierFetcher;
         this.featureToggleState = featureToggleState;
-    }
-
-    private List<PlatformTier> getPlatformTiersDescByRate(String currency) {
-        String url = String.format("https://priceless-khorana-4dd263.netlify.app/%s-rates.json", currency);
-        Platform[] platforms = restTemplate.getForObject(url, Platform[].class);
-        return extractBestRateTiers(platforms)
-            .collect(Collectors.toList());
     }
 
     @GetMapping("/best-rate")
     public Allocation getBestRate() {
-        PlatformTier tier1 = getPlatformTiersDescByRate("btc").get(0);
+        PlatformTier tier1 = platformTierFetcher.getPlatformTiersDescByRate("btc").get(0);
         return new Allocation().setName(tier1.getName()).setRate(tier1.getRate());
     }
 
@@ -44,23 +41,13 @@ public class AllocationController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
 
-        List<PlatformTier> platformTiers = getPlatformTiersDescByRate("btc");
+        List<PlatformTier> platformTiers = platformTierFetcher.getPlatformTiersDescByRate("btc");
 
         return AllocationSelector.getAllocations(amount, platformTiers);
     }
 
-    static Stream<PlatformTier> extractBestRateTiers(Platform[] platforms) {
-        return stream(platforms).flatMap(p -> stream(p.getTiers()).map(t ->
-                new PlatformTier()
-                    .setName(p.getName())
-                    .setRate(t.getRate())
-                    .setMax(t.getMax())
-            ))
-            .sorted(Comparator.comparingDouble(PlatformTier::getRate).reversed());
-    }
-
     public Allocation getBestEthRate() {
-        PlatformTier tier1 = getPlatformTiersDescByRate("eth").get(0);
+        PlatformTier tier1 = platformTierFetcher.getPlatformTiersDescByRate("eth").get(0);
         return new Allocation().setName(tier1.getName()).setRate(tier1.getRate());
     }
 }
