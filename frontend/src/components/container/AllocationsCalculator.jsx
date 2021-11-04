@@ -4,19 +4,13 @@ import {multipleTiersFetched} from "../../actions/allocations";
 import {errorsAdded} from "../../actions/errors";
 import {AmountInput} from "../presentation/AmountInput";
 import {AllocationsTable} from "../presentation/AllocationsTable";
+import {myFetch} from "../../App";
 
 export function fetchAllocations(amount) {
   if (amount === "") {
     return Promise.resolve([]);
   }
-  return fetch(`/api/allocations?amount=${amount}`)
-    .then(async x => {
-      if (x.status >= 400) {
-        throw new Error(await x.text())
-      }
-      return x
-    })
-    .then(x => x.json());
+  return myFetch(`/api/allocations?amount=${amount}`);
 }
 
 export function AllocationsCalculator() {

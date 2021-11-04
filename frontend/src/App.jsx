@@ -5,6 +5,17 @@ import {FEATURES} from "./features";
 import {bestRateFetched} from "./actions/allocations";
 import {AllocationsCalculator} from "./components/container/AllocationsCalculator";
 
+export function myFetch(url) {
+  return fetch(url)
+    .then(async x => {
+      if (x.status >= 400) {
+        throw new Error(await x.text())
+      }
+      return x
+    })
+    .then(x => x.json());
+}
+
 export function formatRate(rate) {
   return rate.toFixed(2) + "%";
 }
@@ -14,8 +25,7 @@ export const BestRateInfo = () => {
 
   const bestAllocation = useSelector(x=>x.allocations.bestRate)
   useEffect(() => {
-    fetch(`/api/best-rate`)
-      .then(x=>x.json())
+    myFetch(`/api/best-rate`)
       .then(x=>dispatch(bestRateFetched(x)))
   }, [])
 
