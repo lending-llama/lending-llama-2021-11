@@ -25,9 +25,16 @@ public class AllocationController {
         this.featureToggleState = featureToggleState;
     }
 
+    private List<PlatformTier> getPlatformTiersDescByRate(String currency) {
+        String url = String.format("https://priceless-khorana-4dd263.netlify.app/%s-rates.json", currency);
+        Platform[] platforms = restTemplate.getForObject(url, Platform[].class);
+        return extractBestRateTiers(platforms)
+            .collect(Collectors.toList());
+    }
+
     @GetMapping("/best-rate")
     public Allocation getBestRate() {
-        PlatformTier tier1 = getPlatformTiersDescByRate().get(0);
+        PlatformTier tier1 = getPlatformTiersDescByRate("btc").get(0);
         return new Allocation().setName(tier1.getName()).setRate(tier1.getRate());
     }
 
@@ -37,16 +44,9 @@ public class AllocationController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
 
-        List<PlatformTier> platformTiers = getPlatformTiersDescByRate();
+        List<PlatformTier> platformTiers = getPlatformTiersDescByRate("btc");
 
         return AllocationSelector.getAllocations(amount, platformTiers);
-    }
-
-    private List<PlatformTier> getPlatformTiersDescByRate() {
-        String url = "https://priceless-khorana-4dd263.netlify.app/btc-rates.json";
-        Platform[] platforms = restTemplate.getForObject(url, Platform[].class);
-        return extractBestRateTiers(platforms)
-            .collect(Collectors.toList());
     }
 
     static Stream<PlatformTier> extractBestRateTiers(Platform[] platforms) {
@@ -60,12 +60,7 @@ public class AllocationController {
     }
 
     public Allocation getBestEthRate() {
-        String url = "https://priceless-khorana-4dd263.netlify.app/eth-rates.json";
-        Platform[] platforms = restTemplate.getForObject(url, Platform[].class);
-        List<PlatformTier> platformTiers = extractBestRateTiers(platforms)
-            .collect(Collectors.toList());
-
-        PlatformTier tier1 = platformTiers.get(0);
+        PlatformTier tier1 = getPlatformTiersDescByRate("eth").get(0);
         return new Allocation().setName(tier1.getName()).setRate(tier1.getRate());
     }
 }
