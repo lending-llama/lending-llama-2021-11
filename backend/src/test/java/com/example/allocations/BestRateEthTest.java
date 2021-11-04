@@ -21,10 +21,10 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withStatus;
 
 @SpringBootTest
-public class AllocationControllerEthTest {
+public class BestRateEthTest {
 
     @Autowired
-    private AllocationController allocationController;
+    private BestRateController bestRateController;
     @Autowired
     private RestTemplate restTemplate;
 
@@ -53,6 +53,6 @@ public class AllocationControllerEthTest {
                 .body(mapper.writeValueAsString(List.of(platform1, platform2)))
             );
 
-        assertThat(allocationController.getBestEthRate()).isEqualTo(new Allocation().setName("platform2").setRate(6.0));
+        assertThat(bestRateController.getBestEthRate()).isEqualTo(new Allocation().setName("platform2").setRate(6.0));
     }
 }

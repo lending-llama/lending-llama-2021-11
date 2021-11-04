@@ -29,12 +29,6 @@ public class AllocationController {
         this.featureToggleState = featureToggleState;
     }
 
-    @GetMapping("/best-rate")
-    public Allocation getBestRate() {
-        PlatformTier tier1 = platformTierFetcher.getPlatformTiersDescByRate("btc").get(0);
-        return new Allocation().setName(tier1.getName()).setRate(tier1.getRate());
-    }
-
     @GetMapping("/allocations")
     public Stream<Allocation> getAllocation(@RequestParam Double amount) throws Exception {
         if (!featureToggleState.isEnabled("multiple-tiers")) {
@@ -46,8 +40,5 @@ public class AllocationController {
         return AllocationSelector.getAllocations(amount, platformTiers);
     }
 
-    public Allocation getBestEthRate() {
-        PlatformTier tier1 = platformTierFetcher.getPlatformTiersDescByRate("eth").get(0);
-        return new Allocation().setName(tier1.getName()).setRate(tier1.getRate());
-    }
+
 }
