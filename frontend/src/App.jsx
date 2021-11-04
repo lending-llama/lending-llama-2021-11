@@ -52,17 +52,13 @@ export const App = () => {
   const features = useSelector(x => x.features)
 
   return (
-    <>
+    <div className="flex flex-col space-y-2">
       <Card><BestRateInfo/></Card>
       {features[FEATURES.MULTIPLE_TIERS] === "on"
-        ? <div className="pt-2">
-            <Card><AllocationsCalculator/></Card>
-          </div>
+        ? <Card><AllocationsCalculator/></Card>
         : null
       }
-      <div className="pt-2">
-        <InfoCard/>
-      </div>
-    </>
+      <InfoCard/>
+    </div>
   );
 }
