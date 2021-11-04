@@ -6,17 +6,6 @@ import {bestRateFetched} from "../features/allocations/actions";
 import {AllocationsCalculator} from "../features/allocations/AllocationsCalculator";
 import {fetchJsonFromBackend} from "../common/http";
 
-export function myFetch(url) {
-  return fetch(url)
-    .then(async x => {
-      if (x.status >= 400) {
-        throw new Error(await x.text())
-      }
-      return x
-    })
-    .then(x => x.json());
-}
-
 export function formatRate(rate) {
   return rate.toFixed(2) + "%";
 }
