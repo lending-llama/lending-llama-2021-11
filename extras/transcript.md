@@ -124,33 +124,6 @@ Originally suggested [by Brian Marick](http://www.exampler.com/old-blog/2003/08/
 
 ![](https://gojko.net/assets/quadrants_small1.png)
 
-### Generative Testing – Alternative to Example-Based Testing
-
-aka property-based testing
-Invented by John Hughes: [QuickCheck](https://en.wikipedia.org/wiki/QuickCheck) (Haskell)
-
-> Property based testing is the construction of tests such that, when these tests are fuzzed, failures in the test reveal problems with the system under test.
->
-> – David R. MacIver, https://hypothesis.works/articles/what-is-property-based-testing/
-
-Collection of ressources on generative testing: https://jqwik.net/property-based-testing.html
-
-Example tools:
-
-* [jqwik](https://jqwik.net/) (Java)
-* [JSVerify](https://jsverify.github.io/) (JavaScript)
-
-### Mutation Testing – Obscure, Conceptually Fascianting Technique
-
-> Bugs, or *mutants*, are automatically inserted into your production code. Your tests are run for each mutant. If your tests *fail* then the mutant is *killed*. If your tests passed, the mutant *survived*. The higher the percentage of mutants killed, the more *effective* your tests are.
->
-> – https://stryker-mutator.io/docs/
-
-Example tools:
-
-* [PIT](http://pitest.org/) (Java)
-* [Stryker](https://stryker-mutator.github.io/) (JavaScript)
-
 
 
 ## The Smell of Duplication
@@ -262,6 +235,89 @@ When is then? In this particular example: when incidental details of external AP
 I understand that this approach is more complex than a hard rule and requires one to take more care when developing. But in my view this at least allows for a clean architecture without quickly becoming impractical. – This also ties in nicely with something that I have learned from Kent Beck: cohesion and coupling are hard to analyze statically, but are better understood dynamically, i.e. by observing how a system evolves, which change it must support. (Unfortunately I do not have a source for this.)
 
 
+
+## Bonus
+
+### Generative Testing – Complement to Example-Based Testing
+
+aka property-based testing
+Invented by John Hughes: [QuickCheck](https://en.wikipedia.org/wiki/QuickCheck) (Haskell)
+
+> Property based testing is the construction of tests such that, when these tests are fuzzed, failures in the test reveal problems with the system under test.
+>
+> – David R. MacIver, https://hypothesis.works/articles/what-is-property-based-testing/
+
+Collection of ressources on generative testing: https://jqwik.net/property-based-testing.html
+
+Example tools:
+
+* [jqwik](https://jqwik.net/) (Java)
+* [JSVerify](https://jsverify.github.io/) (JavaScript)
+
+
+
+### Mutation Testing – Obscure, Conceptually Fascianting Technique
+
+> Bugs, or *mutants*, are automatically inserted into your production code. Your tests are run for each mutant. If your tests *fail* then the mutant is *killed*. If your tests passed, the mutant *survived*. The higher the percentage of mutants killed, the more *effective* your tests are.
+>
+> – https://stryker-mutator.io/docs/
+
+Example tools:
+
+* [PIT](http://pitest.org/) (Java)
+* [Stryker](https://stryker-mutator.github.io/) (JavaScript)
+
+
+
+### Composed Method Pattern
+
+> Divide your program into methods that perform one identifiable task. Keep all of the operations in a method at the same level of abstraction. This will naturally result in programs with many small methods, each a few lines long.
+> When you use ExtractMethod a bunch of times on a method the original method becomes a ComposedMethod.
+>
+> – Kent Beck, https://wiki.c2.com/?ComposedMethod
+
+Of course, this applies not only to operations. For instance, compare this React component …
+
+```javascript
+<>
+  <div data-testid="allocation-c020b901">
+    <Card>
+      Best rate: {bestAllocation.rate && bestAllocation.rate.toFixed(2)}% ({bestAllocation.name})
+    </Card>
+  </div>
+  {features[FEATURES.MULTIPLE_TIERS] === "on"
+    ? <div className="pt-2">
+        <Card>
+          <InputWithLabel {...} />
+          <div className="pt-4"><AllocationsTable allocations={allocations}/></div>
+        </Card>
+      </div>
+    : null
+  }
+  <div className="pt-2">
+    <Card>
+      <p>WAGMI</p>
+    </Card>
+  </div>
+</>
+```
+
+to this …
+
+```javascript
+<>
+  <Card><BestRateInfo/></Card>
+  {features[FEATURES.MULTIPLE_TIERS] === "on"
+    ? <div className="pt-2">
+        <Card><AllocationsCalculator/></Card>
+      </div>
+    : null
+  }
+  <div className="pt-2">
+    <InfoCard/>
+  </div>
+</>
+```
 
 ## Fun Bits
 
