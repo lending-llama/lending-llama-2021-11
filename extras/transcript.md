@@ -251,7 +251,7 @@ Example tools:
 
 
 
-### Mutation Testing – Obscure, Conceptually Fascianting Technique
+### Mutation Testing – Obscure, Conceptually Fascinating Technique
 
 > Bugs, or *mutants*, are automatically inserted into your production code. Your tests are run for each mutant. If your tests *fail* then the mutant is *killed*. If your tests passed, the mutant *survived*. The higher the percentage of mutants killed, the more *effective* your tests are.
 >
