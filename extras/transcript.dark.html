@@ -1,0 +1,1474 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --mermaid-theme:  default; --mermaid-sequence-numbers:  off; --mermaid-flowchart-curve:  linear; --mermaid--gantt-left-padding:  75; --sequence-theme:  simple; }
+
+
+:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit; background-repeat: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) { 
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit; background-repeat: inherit; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print { 
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) { 
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print { 
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) { 
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) { 
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571429rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ''; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ''; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ''; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: '−'; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right-width: 1px; border-right-style: solid; border-right-color: rgb(221, 221, 221); background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; white-space: nowrap; background-position: inherit; background-repeat: inherit; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; border: none !important; background-position: 0px 0px !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-width: 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; background-position: 0px 0px; }
+.CodeMirror-wrap pre { word-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right-width: 30px; border-right-style: solid; border-right-color: transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right-style: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right-style: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background-color: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print { 
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+  --mermaid-theme: night;
+}
+
+[lang='mermaid'] .label {
+  color: #333;
+}
+
+/* CSS Document */
+
+/** code highlight */
+
+.cm-s-inner .cm-variable,
+.cm-s-inner .cm-operator,
+.cm-s-inner .cm-property {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-keyword {
+    color: #C88FD0;
+}
+
+.cm-s-inner .cm-tag {
+    color: #7DF46A;
+}
+
+.cm-s-inner .cm-attribute {
+    color: #7575E4;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid #b8bfc6;
+    z-index: 3;
+}
+
+.cm-s-inner .cm-string {
+    color: #D26B6B;
+}
+
+.cm-s-inner .cm-comment,
+.cm-s-inner.cm-comment {
+    color: #DA924A;
+}
+
+.cm-s-inner .cm-header,
+.cm-s-inner .cm-def,
+.cm-s-inner.cm-header,
+.cm-s-inner.cm-def {
+    color: #8d8df0;
+}
+
+.cm-s-inner .cm-quote,
+.cm-s-inner.cm-quote {
+    color: #57ac57;
+}
+
+.cm-s-inner .cm-hr {
+    color: #d8d5d5;
+}
+
+.cm-s-inner .cm-link {
+    color: #d3d3ef;
+}
+
+.cm-s-inner .cm-negative {
+    color: #d95050;
+}
+
+.cm-s-inner .cm-positive {
+    color: #50e650;
+}
+
+.cm-s-inner .cm-string-2 {
+    color: #f50;
+}
+
+.cm-s-inner .cm-meta,
+.cm-s-inner .cm-qualifier {
+    color: #b7b3b3;
+}
+
+.cm-s-inner .cm-builtin {
+    color: #f3b3f8;
+}
+
+.cm-s-inner .cm-bracket {
+    color: #997;
+}
+
+.cm-s-inner .cm-atom,
+.cm-s-inner.cm-atom {
+    color: #84B6CB;
+}
+
+.cm-s-inner .cm-number {
+    color: #64AB8F;
+}
+
+.cm-s-inner .cm-variable {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: #9FBAD5;
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: #1cc685;
+}
+
+.CodeMirror-selectedtext,
+.CodeMirror-selected {
+    background: #4a89dc;
+    color: #fff !important;
+    text-shadow: none;
+}
+
+.CodeMirror-gutters {
+    border-right: none;
+}
+
+/* CSS Document */
+
+/** markdown source **/
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property
+{
+    color: #cebcca;
+}
+
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor{
+    border-left: 3px solid #b8bfc6;
+}
+
+.cm-s-typora-default .cm-comment {
+    color: #9FB1FF;
+}
+
+.cm-s-typora-default .cm-string {
+    color: #A7A7D9
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+    color: #848695;
+    font-style: italic;
+}
+
+.cm-s-typora-default .cm-link {
+    color: #95B94B;
+}
+
+.cm-s-typora-default .CodeMirror-activeline-background {
+    background: rgba(51, 51, 51, 0.72);
+}
+
+.cm-s-typora-default .cm-comment, .cm-s-typora-default .cm-code {
+	color: #8aa1e1;
+}@import "";
+@import "";
+@import "";
+
+:root {
+    --bg-color:  #363B40;
+    --side-bar-bg-color: #2E3033;
+    --text-color: #b8bfc6;
+
+    --select-text-bg-color:#4a89dc;
+
+    --item-hover-bg-color: #0a0d16;
+    --control-text-color: #b7b7b7;
+    --control-text-hover-color: #eee;
+    --window-border: 1px solid #555;
+
+    --active-file-bg-color: rgb(34, 34, 34);
+    --active-file-border-color: #8d8df0;
+
+    --primary-color: #a3d5fe;
+
+    --active-file-text-color: white;
+    --item-hover-bg-color: #70717d;
+    --item-hover-text-color: white;
+    --primary-color: #6dc1e7;
+
+    --rawblock-edit-panel-bd: #333;
+
+    --search-select-bg-color: #428bca;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    background: #363B40;
+    background: var(--bg-color);
+    fill: currentColor;
+    line-height: 1.625rem;
+}
+
+#write {
+    max-width: 914px;
+}
+
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea,
+div.code-tooltip-content {
+    color: #b8bfc6;
+    border-color: transparent;
+}
+
+div.code-tooltip,
+.md-hover-tip .md-arrow:after {
+    background: #333;
+}
+
+.native-window #md-notification {
+    border: 1px solid #70717d;
+}
+
+.popover.bottom > .arrow:after {
+    border-bottom-color: #333;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+}
+
+hr {
+    height: 2px;
+    border: 0;
+    margin: 24px 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lucida Grande", "Corbel", sans-serif;
+    font-weight: normal;
+    clear: both;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    color: #DEDEDE
+}
+
+h1 {
+    font-size: 2.5rem;
+    /* 36px */
+    line-height: 2.75rem;
+    /* 40px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-size: 1.63rem;
+    /* 24px */
+    line-height: 1.875rem;
+    /* 30px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.17rem;
+    /* 18px */
+    line-height: 1.5rem;
+    /* 24px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.12rem;
+    /* 16px */
+    line-height: 1.375rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    color: white;
+}
+
+h5 {
+    font-size: 0.97rem;
+    /* 16px */
+    line-height: 1.25rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    font-weight: bold;
+}
+
+h6 {
+    font-size: 0.93rem;
+    /* 16px */
+    line-height: 1rem;
+    /* 16px */
+    margin-bottom: 0.75rem;
+    color: white;
+}
+
+@media (min-width: 980px) {
+    h3.md-focus:before,
+    h4.md-focus:before,
+    h5.md-focus:before,
+    h6.md-focus:before {
+        color: #ddd;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        position: absolute;
+        left: -1.642857143rem;
+        top: .357142857rem;
+        float: left;
+        font-size: 9px;
+        padding-left: 2px;
+        padding-right: 2px;
+        vertical-align: bottom;
+        font-weight: normal;
+        line-height: normal;
+    }
+
+    h3.md-focus:before {
+        content: 'h3';
+    }
+
+    h4.md-focus:before {
+        content: 'h4';
+    }
+
+    h5.md-focus:before {
+        content: 'h5';
+        top: 0px;
+    }
+
+    h6.md-focus:before {
+        content: 'h6';
+        top: 0px;
+    }
+}
+
+a {
+    text-decoration: none;
+    outline: 0;
+}
+
+a:hover {
+    outline: 0;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+sup.md-footnote {
+    background-color: #555;
+    color: #ddd;
+}
+
+p {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+p,
+ul,
+dd,
+ol,
+hr,
+address,
+pre,
+table,
+iframe,
+.wp-caption,
+.wp-audio-shortcode,
+.wp-video-shortcode {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    /* 24px */
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+[hidden] {
+    display: none;
+}
+
+::-moz-selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+*.in-text-selection,
+::selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+ul,
+ol {
+    padding: 0 0 0 1.875rem;
+    /* 30px */
+}
+
+ul {
+    list-style: square;
+}
+
+ol {
+    list-style: decimal;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin: 0;
+}
+
+b,
+th,
+dt,
+strong {
+    font-weight: bold;
+}
+
+i,
+em,
+dfn,
+cite {
+    font-style: italic;
+}
+
+blockquote {
+    padding-left: 1.875rem;
+    margin: 0 0 1.875rem 1.875rem;
+    border-left: solid 2px #474d54;
+    padding-left: 30px;
+    margin-top: 35px;
+}
+
+pre,
+code,
+kbd,
+tt,
+var {
+    font-size: 0.875em;
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+code,
+tt,
+var {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+}
+
+pre.md-fences {
+    padding: 10px 10px 10px 30px;
+    margin-bottom: 20px;
+    background: #333;
+}
+
+.CodeMirror-gutters {
+    background: #333;
+    border-right: 1px solid transparent;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -2.2em;
+    right: 4px;
+}
+
+code,
+kbd,
+tt,
+var {
+    padding: 2px 5px;
+}
+
+table {
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th,
+td {
+    padding: 5px 10px;
+    vertical-align: top;
+}
+
+a {
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+hr {
+    background: #474d54;
+    /* variable */
+}
+
+h1 {
+    margin-top: 2em;
+}
+
+a {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.md-inline-math script {
+    color: #81b1db;
+}
+
+b,
+th,
+dt,
+strong {
+    color: #DEDEDE;
+    /* variable */
+}
+
+mark {
+    background: #D3D40E;
+}
+
+blockquote {
+    color: #9DA2A6;
+}
+
+table a {
+    color: #DEDEDE;
+    /* variable */
+}
+
+th,
+td {
+    border: solid 1px #474d54;
+    /* variable */
+}
+
+.task-list {
+    padding-left: 0;
+}
+
+.md-task-list-item {
+    padding-left: 1.25rem;
+}
+
+.md-task-list-item > input {
+    top: auto;
+}
+
+.md-task-list-item > input:before {
+    content: "";
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #b8bfc6;
+    background-color: #363B40;
+    margin-top: -0.4rem;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before {
+    content: '\221A';
+    /*◘*/
+    font-size: 0.625rem;
+    line-height: 0.625rem;
+    color: #DEDEDE;
+}
+
+/** quick open **/
+.auto-suggest-container {
+    border: 0px;
+    background-color: #525C65;
+}
+
+#typora-quick-open {
+    background-color: #525C65;
+}
+
+#typora-quick-open input{
+    background-color: #525C65;
+    border: 0;
+    border-bottom: 1px solid grey;
+}
+
+.typora-quick-open-item {
+    background-color: inherit;
+    color: inherit;
+}
+
+.typora-quick-open-item.active,
+.typora-quick-open-item:hover {
+    background-color: #4D8BDB;
+    color: white;
+}
+
+.typora-quick-open-item:hover {
+    background-color: rgba(77, 139, 219, 0.8);
+}
+
+.typora-search-spinner > div {
+  background-color: #fff;
+}
+
+#write pre.md-meta-block {
+    border-bottom: 1px dashed #ccc;
+    background: transparent;
+    padding-bottom: 0.6em;
+    line-height: 1.6em;
+}
+
+.btn,
+.btn .btn-default {
+    background: transparent;
+    color: #b8bfc6;
+}
+
+.ty-table-edit {
+    border-top: 1px solid gray;
+    background-color: #363B40;
+}
+
+.popover-title {
+    background: transparent;
+}
+
+.md-image>.md-meta {
+    color: #BBBBBB;
+    background: transparent;
+}
+
+.md-expand.md-image>.md-meta {
+    color: #DDD;
+}
+
+#write>h3:before,
+#write>h4:before,
+#write>h5:before,
+#write>h6:before {
+    border: none;
+    border-radius: 0px;
+    color: #888;
+    text-decoration: underline;
+    left: -1.4rem;
+    top: 0.2rem;
+}
+
+#write>h3.md-focus:before {
+    top: 2px;
+}
+
+#write>h4.md-focus:before {
+    top: 2px;
+}
+
+.md-toc-item {
+    color: #A8C2DC;
+}
+
+#write div.md-toc-tooltip {
+    background-color: #363B40;
+}
+
+.dropdown-menu .btn:hover,
+.dropdown-menu .btn:focus,
+.md-toc .btn:hover,
+.md-toc .btn:focus {
+    color: white;
+    background: black;
+}
+
+#toc-dropmenu {
+    background: rgba(50, 54, 59, 0.93);
+    border: 1px solid rgba(253, 253, 253, 0.15);
+}
+
+#toc-dropmenu .divider {
+    background-color: #9b9b9b;
+}
+
+.outline-expander:before {
+    top: 2px;
+}
+
+#typora-sidebar {
+    box-shadow: none;
+    border-right: 1px dashed;
+    border-right: none;
+}
+
+.sidebar-tabs {
+    border-bottom:0;
+}
+
+#typora-sidebar:hover .outline-title-wrapper {
+    border-left: 1px dashed;
+}
+
+.outline-title-wrapper .btn {
+    color: inherit;
+}
+
+.outline-item:hover {
+    border-color: #363B40;
+    background-color: #363B40;
+    color: white;
+}
+
+h1.md-focus .md-attr,
+h2.md-focus .md-attr,
+h3.md-focus .md-attr,
+h4.md-focus .md-attr,
+h5.md-focus .md-attr,
+h6.md-focus .md-attr,
+.md-header-span .md-attr {
+    color: #8C8E92;
+    display: inline;
+}
+
+.md-comment {
+    color: #5a95e3;
+    opacity: 0.8;
+}
+
+.md-inline-math svg {
+    color: #b8bfc6;
+}
+
+#math-inline-preview .md-arrow:after {
+    background: black;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    border: 0;
+}
+
+.modal-title {
+    font-size: 1.5em;
+}
+
+.modal-content input {
+    background-color: rgba(26, 21, 21, 0.51);
+    color: white;
+}
+
+.modal-content .input-group-addon {
+    color: white;
+}
+
+.modal-backdrop {
+    background-color: rgba(174, 174, 174, 0.7);
+}
+
+.modal-content .btn-primary {
+    border-color: var(--primary-color);
+}
+
+.md-table-resize-popover {
+    background-color: #333;
+}
+
+.form-inline .input-group .input-group-addon {
+    color: white;
+}
+
+#md-searchpanel {
+    border-bottom: 1px dashed grey;
+}
+
+/** UI for electron */
+
+.context-menu,
+#spell-check-panel,
+#footer-word-count-info {
+    background-color: #42464A;
+}
+
+.context-menu.dropdown-menu .divider,
+.dropdown-menu .divider {
+    background-color: #777777;
+    opacity: 1;
+}
+
+footer {
+    color: inherit;
+}
+
+@media (max-width: 1000px) {
+    footer {
+        border-top: none;
+    }
+    footer:hover {
+        color: inherit;
+    }
+}
+
+#file-info-file-path .file-info-field-value:hover {
+    background-color: #555;
+    color: #dedede;
+}
+
+.megamenu-content,
+.megamenu-opened header {
+    background: var(--bg-color);
+}
+
+.megamenu-menu-panel h2,
+.megamenu-menu-panel h1,
+.long-btn {
+    color: inherit;
+}
+
+.megamenu-menu-panel input[type='text'] {
+    background: inherit;
+    border: 0;
+    border-bottom: 1px solid;
+}
+
+#recent-file-panel-action-btn {
+    background: inherit;
+    border: 1px grey solid;
+}
+
+.megamenu-menu-panel .dropdown-menu > li > a {
+    color: inherit;
+    background-color: #2F353A;
+    text-decoration: none;
+}
+
+.megamenu-menu-panel table td:nth-child(1) {
+    color: inherit;
+    font-weight: bold;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(1) {
+    color: white;
+}
+
+.modal-footer .btn-default, 
+.modal-footer .btn-primary,
+.modal-footer .btn-default:not(:hover) {
+    border: 1px solid;
+    border-color: transparent;
+}
+
+.btn-primary {
+    color: white;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    color: white;
+    border: 1px solid #ddd;
+    background-color: inherit;
+}
+
+.modal-header {
+    border-bottom: 0;
+}
+
+.modal-footer {
+    border-top: 0;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+    border: 1px solid #eee;
+    background: transparent;
+}
+
+.mouse-hover .toolbar-icon.btn:hover,
+#w-full.mouse-hover,
+#w-pin.mouse-hover {
+    background-color: inherit;
+}
+
+.typora-node::-webkit-scrollbar {
+    width: 5px;
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical {
+    background: rgba(250, 250, 250, 0.3);
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical:active {
+    background: rgba(250, 250, 250, 0.5);
+}
+
+#w-unpin {
+    background-color: #4182c4;
+}
+
+#top-titlebar, #top-titlebar * {
+    color: var(--item-hover-text-color);
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+#footer-word-count:hover,
+.ty-show-word-count #footer-word-count {
+    background: #333333;
+}
+
+#toggle-sourceview-btn:hover {
+    color: #eee;
+    background: #333333;
+}
+
+/** focus mode */
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus) img,
+.on-focus-mode .md-task-list-item:not(.md-focus-container)>input {
+    opacity: #686868 !important;
+}
+
+.on-focus-mode li[cid]:not(.md-focus-container){
+    color: #686868;
+}
+
+.on-focus-mode .md-fences.md-focus .CodeMirror-code>*:not(.CodeMirror-activeline) *,
+.on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-focus,
+.on-focus-mode .md-focus-container {
+    color: #fff;
+}
+
+.on-focus-mode #typora-source .CodeMirror-code>*:not(.CodeMirror-activeline) * {
+    color: #686868 !important;
+}
+
+
+/*diagrams*/
+#write .md-focus .md-diagram-panel {
+    border: 1px solid #ddd;
+    margin-left: -1px;
+    width: calc(100% + 2px);
+}
+
+/*diagrams*/
+#write .md-focus.md-fences-with-lineno .md-diagram-panel {
+    margin-left: auto;
+}
+
+.md-diagram-panel-error {
+    color: #f1908e;
+}
+
+.active-tab-files #info-panel-tab-file,
+.active-tab-files #info-panel-tab-file:hover,
+.active-tab-outline #info-panel-tab-outline,
+.active-tab-outline #info-panel-tab-outline:hover {
+    color: #eee;
+}
+
+.sidebar-footer-item:hover,
+.footer-item:hover {
+    background: inherit;
+    color: white;
+}
+
+.ty-side-sort-btn.active,
+.ty-side-sort-btn:hover,
+.selected-folder-menu-item a:after {
+    color: white;
+}
+
+#sidebar-files-menu {
+    border:solid 1px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.79);
+    background-color: var(--bg-color);
+}
+
+.file-list-item {
+    border-bottom:none;
+}
+
+.file-list-item-summary {
+    opacity: 1;
+}
+
+.file-list-item.active:first-child {
+    border-top: none;
+}
+
+.file-node-background {
+    height: 32px;
+}
+
+.file-library-node.active>.file-node-content,
+.file-list-item.active {
+    color: white;
+    color: var(--active-file-text-color);
+}
+
+.file-library-node.active>.file-node-background{
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+.file-list-item.active {
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+
+#ty-tooltip {
+    background-color: black;
+    color: #eee;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: 0.3rem;
+    -webkit-appearance: none;
+}
+
+.md-mathjax-midline {
+    background-color: #57616b;
+    border-bottom: none;
+}
+
+footer.ty-footer {
+    border-color: #656565;
+}
+
+.ty-preferences .btn-default {
+    background: transparent;
+}
+.ty-preferences .btn-default:hover {
+    background: #57616b;
+}
+
+.ty-preferences select {
+    border: 1px solid #989698;
+    height: 21px;
+}
+
+.ty-preferences .nav-group-item.active,
+.export-item.active,
+.export-items-list-control,
+.export-detail {
+    background: var(--item-hover-bg-color);
+}
+
+.ty-preferences input[type="search"] {
+    border-color: #333;
+    background: #333;
+    line-height: 22px;
+    border-radius: 6px;
+    color: white;
+}
+
+.ty-preferences input[type="search"]:focus {
+    box-shadow: none;
+}
+
+[data-is-directory="true"] .file-node-content {
+    margin-bottom: 0;
+}
+
+.file-node-title {
+    line-height: 22px;
+}
+
+.html-for-mac .file-node-open-state, .html-for-mac .file-node-icon {
+    line-height: 26px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgba(230, 230, 230, 0.50);
+}
+
+#typora-sidebar:hover div.sidebar-content-content::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+.nav-group-item:active {
+    background-color: #474d54 !important;
+}
+
+.md-search-hit {
+    background: rgba(199, 140, 60, 0.81);
+    color: #eee;
+}
+
+.md-search-hit * {
+    color: #eee;
+}
+
+#md-searchpanel input {
+    color: white;
+}
+
+.modal-backdrop.in {
+    opacity: 1;
+    backdrop-filter: blur(1px);
+}
+
+.clear-btn-icon {
+    top: 8px;
+}
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}} .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style><title>transcript</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='technical-practices-for-agile-development'><span>Technical Practices for Agile Development</span></h1><p><span>Alex Bepple</span>
+<span>Last update: 11 November 2021</span></p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" style="" href="#technical-practices-for-agile-development">Technical Practices for Agile Development</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n5"><a class="md-toc-inner" style="" href="#trunk-based-development">Trunk-Based Development</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n19"><a class="md-toc-inner" style="" href="#test-driven-development">Test-Driven Development</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n24"><a class="md-toc-inner" style="" href="#micro-patterns">Micro Patterns</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n30"><a class="md-toc-inner" style="" href="#refactoring">Refactoring</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n43"><a class="md-toc-inner" style="" href="#automated-testing">Automated Testing</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n44"><a class="md-toc-inner" style="" href="#first">FIRST</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n58"><a class="md-toc-inner" style="" href="#strategy-for-test-suites">Strategy for Test Suites</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n60"><a class="md-toc-inner" style="" href="#warning-1-beware-of-too-integrative-attitude">Warning 1: Beware of Too Integrative Attitude</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n68"><a class="md-toc-inner" style="" href="#warning-2-test-doubles-everywhere">Warning 2: Test Doubles Everywhere</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n72"><a class="md-toc-inner" style="" href="#testing-quadrants">Testing Quadrants</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n99"><a class="md-toc-inner" style="" href="#the-smell-of-duplication">The Smell of Duplication</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n113"><a class="md-toc-inner" style="" href="#software-architecture">Software Architecture</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n121"><a class="md-toc-inner" style="" href="#low-coupling-high-cohesion----the-holy-grail">Low Coupling, High Cohesion – The Holy Grail</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n131"><a class="md-toc-inner" style="" href="#dependency-inversion-principle">Dependency-Inversion Principle</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n149"><a class="md-toc-inner" style="" href="#dependency-inverted-architecture">Dependency-Inverted Architecture</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n178"><a class="md-toc-inner" style="" href="#bonus">Bonus</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n230"><a class="md-toc-inner" style="" href="#generative-testing----complement-to-example-based-testing">Generative Testing – Complement to Example-Based Testing</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n242"><a class="md-toc-inner" style="" href="#mutation-testing----obscure-conceptually-fascinating-technique">Mutation Testing – Obscure, Conceptually Fascinating Technique</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n264"><a class="md-toc-inner" style="" href="#composed-method-pattern">Composed Method Pattern</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n188"><a class="md-toc-inner" style="" href="#fun-bits">Fun Bits</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n170"><a class="md-toc-inner" style="" href="#exploratory-testing">Exploratory Testing</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n172"><a class="md-toc-inner" style="" href="#yak-shaving">Yak Shaving</a></span></p></div><p>&nbsp;</p><h2 id='trunk-based-development'><span>Trunk-Based Development</span></h2><p><span>There may be good use cases for feature branches. Software development in a collaborative team that’s limiting its work in progress is not it.</span></p><p><span>Major drawbacks of feature branches:</span></p><ul><li><span>Risk of merge conflicts.</span></li><li><span>Different branches cannot be effectively continuously integrated. Risk of semantic merge conflicts that go undetected.</span></li><li><span>Delayed release into the wild increases risk of late regressions.</span></li><li><span>Fear of merge conflicts reduces willingness to refactor.</span></li></ul><p><span>The solution: </span><a href='https://trunkbaseddevelopment.com/'><span>Trunk-Based Development</span></a><span> using </span><a href='https://martinfowler.com/articles/feature-toggles.html'><span>Feature Toggles</span></a><span>.</span></p><p>&nbsp;</p><h2 id='test-driven-development'><span>Test-Driven Development</span></h2><p><span>Core loop: </span><span style="color:red"><span>Red</span></span><span> → </span><span style="color:green"><span>Green</span></span><span> → </span><span style="color:blue"><span>Refactor</span></span><span>.</span><br/><span>Do not forget </span><em><span>refactoring!</span></em></p><p><span>Seeing a test </span><span style="color:red"><span>fail</span></span><span> is essential. It ensures that you are testing what you think you are testing. You may have written a dead test, a tautological test, executed the wrong thing, etc. (If you happen to write a test </span><em><span>after</span></em><span> the implementation, do yourself a favor: break the code and see the test fail.)</span></p><p><span>Test-Driven Development is not a testing approach. TDD is a technique for structuring your development flow. It guides you to implement a big thing bit by bit and to never doubt whether the small bit that you implemented first still works. </span></p><p><span>TDD can be applied at different levels: from micro tests (&quot;unit tests&quot;, &quot;narrow tests&quot;) to end-to-end tests. The length of the loop varies accordingly. At the micro level, it takes minutes at the most. The larger the test scope, i.e. the unit under test, the longer. At e2e level, it might take days. However, whenever possible, prefer smaller slices of functionality. Even at e2e level, try sticking to sub-day granularity.</span></p><h3 id='micro-patterns'><span>Micro Patterns</span></h3><p><em><span>Obvious implementation</span></em><span></span><br/><span>When bar is </span><span style="color:red"><span>red</span></span><span>, just write the </span><span style="color:green"><span>correct</span></span><span> implementation, if you can do it in timely fashion.</span></p><p><em><span>Fake it till you make it</span></em><span></span><br/><span>When </span><span style="color:red"><span>red</span></span><span>, quickly get to </span><span style="color:green"><span>green</span></span><span> using a fake, continue engineering the proper implementation by slowly reverse-engeineering the fake, while staying </span><span style="color:green"><span>green</span></span><span>.</span><br/><span>Take a look at </span><a href='https://en.wikipedia.org/wiki/Fake_it_till_you_make_it'><span>Wikipedia article</span></a><span> for interesting cultural references.</span></p><p><em><span>Triangulation</span></em><span> </span><br/><span>Start when </span><span style="color:green"><span>green</span></span><span>. Add another </span><span style="color:red"><span>red</span></span><span> test in order to force your code to move in the direction of the desired behavior.</span></p><p><span>Rock climber metaphor … When you are doing something easy and you are having a great day, nothing wrong with </span><em><span>obvious implementation.</span></em><span> The less certain you are, the more safety you can give yourself with either </span><em><span>fake it till you make it</span></em><span> or </span><em><span>triangulation.</span></em></p><p>&nbsp;</p><h2 id='refactoring'><span>Refactoring</span></h2><blockquote><p><span>to refactor </span><em><span>(vt, vi)</span></em><span> </span>
+<span>improve structure of code without changing observable behavior</span></p></blockquote><p><span>Purpose of improvement: ease maintenance.</span><br/><span>Vectors of attack: </span></p><ul><li><span>make code easier to understand, e.g. improve names, hide incidental details</span></li><li><span>make code easier to modify, e.g. establish technical properties such as immutability, remove duplication</span></li></ul><p><span>Of course, it depends on the point of view what is &quot;observable&quot; behavior and what isn’t.</span></p><p><span>Term </span><a href='https://martinfowler.com/books/refactoring.html'><span>popularized</span></a><span> by Martin Fowler.</span></p><p><span>If you want inspiration for how to refactor legacy code, Michael Feathers’ «</span><a href='https://www.goodreads.com/en/book/show/44919.Working_Effectively_with_Legacy_Code'><span>Working Effectively with Legacy Code</span></a><span>» is a classic.</span></p><p>&nbsp;</p><h2 id='automated-testing'><span>Automated Testing</span></h2><h3 id='first'><span>FIRST</span></h3><p><span>Good automated tests are FIRST.</span></p><ul><li><span>Fast</span><br/><span>For micro tests a workable rule of thumb: &lt;1 ms per test. Reasoning: a healthy-sized code base can have a couple of thousands of micro tests. These should be able to run within a few seconds.</span></li><li><span>Isolated</span></li><li><span>Repeatable</span><br/><span>This becomes a particular challenge with increasing test scope. Indirect external inputs in particular love to be sources of flakiness. Typical examples: system clock, external services. With test scope, technology-induced flakiness increases, too. Very common pain point: asynchronicity in browser.</span><br/><span>Remedy: prefer micro tests of pure functions whenever possible. Also see warning against too large test scopes.</span></li><li><span>Self-verifying</span></li><li><span>Timely</span></li></ul><h3 id='strategy-for-test-suites'><span>Strategy for Test Suites</span></h3><p><span>Classic recommendation and still a good rule of thumb: Testing Pyramid. </span>
+<span>Good overview and discussion: </span><a href='https://martinfowler.com/articles/practical-test-pyramid.html' target='_blank' class='url'>https://martinfowler.com/articles/practical-test-pyramid.html</a></p><h4 id='warning-1-beware-of-too-integrative-attitude'><span>Warning 1: Beware of Too Integrative Attitude</span></h4><p><span>It is all too common. For instance:</span></p><blockquote><p><span>The more your tests resemble the way your software is used,</span>
+<span>the more confidence they can give you.</span></p><p><span>– Kent C. Dodds, </span><a href='https://testing-library.com/' target='_blank' class='url'>https://testing-library.com/</a></p></blockquote><p><span>He is not wrong. But this is only one side of the truth. There are downsides: speed of execution, failure locality, technical complexity, setup complexity.</span></p><p><span>Solution: overlapping sociable tests (cp. discussion of Testing Pyramid linked above).</span></p><p><span>Push every worthwhile observable behavior as far as possible to the micro level – as long as it’s sensible – and test it there. This approach has the additional benefit of driving your technical design. Remember </span><code>formatRate</code><span> in our example code base.</span></p><h4 id='warning-2-test-doubles-everywhere'><span>Warning 2: Test Doubles Everywhere</span></h4><p><span>Mocks and stubs have the nasty habit of making tests hard to understand. Because of their technical focus, they also tend to cement design choices, achieving the opposite of what tests were supposed to do: support engineers when changing software.</span></p><p><span>Steve Freeman and Nat Pryce’s «</span><a href='http://www.growing-object-oriented-software.com/'><span>Growing Object-Oriented Software Guided by Tests</span></a><span>» was the high point of test doubles and also demonstrated the flaws of the approach.</span></p><p><span>James Shore’s «</span><a href='https://www.jamesshore.com/v2/blog/2018/testing-without-mocks'><span>Testing without Mocks</span></a><span>» is an eye opener for patterns for overlapping sociable tests that strike a balance between small test scope and remaining easy to understand. E.g. </span><a href='https://www.jamesshore.com/v2/blog/2018/testing-without-mocks#logic-sandwich'><span>Logic Sandwich</span></a><span> cleanly separates infrastructure interactions from logic. All logic becomes easily micro-testable.</span></p><h3 id='testing-quadrants'><span>Testing Quadrants</span></h3><p><span>An adjacent and broader way for thinking about testing in agile development are the Testing Quadrants.</span></p><p><span>Originally suggested </span><a href='http://www.exampler.com/old-blog/2003/08/21/#agile-testing-project-1'><span>by Brian Marick</span></a><span> in 2003. Popularized by Lisa Crispin and Janet Gregory in «</span><a href='https://www.goodreads.com/book/show/5341009-agile-testing'><span>Agile Testing</span></a><span>» (cp. </span><a href='https://lisacrispin.com/2011/11/08/using-the-agile-testing-quadrants/'><span>summary</span></a><span>). Gojko Adjic </span><a href='https://gojko.net/2013/10/21/lets-break-the-agile-testing-quadrants/'><span>puts</span></a><span> a nice spin on the original by distinguishing between &quot;checking for expected outputs&quot; and &quot;analysing undefined, unknown and unexpected&quot;.</span></p><p><img src="https://gojko.net/assets/quadrants_small1.png" referrerpolicy="no-referrer"></p><p>&nbsp;</p><h2 id='the-smell-of-duplication'><span>The Smell of Duplication</span></h2><p><span>Of the many </span><a href='https://en.wikipedia.org/wiki/Code_smell'><span>code smells</span></a><span>, which we eliminate by refactoring, my favorite by far is duplication. It is deceptively simple, yet consequential.</span></p><ol start='' ><li><span>Duplication, over time, introduces subtle differences in behavior between different parts of the system.</span></li><li><span>Duplication can make a system harder to understand because from reading code alone it is not obvious that something is supposed to be the same as something else. This compounds. As it becomes harder and harder to see the forest for the trees.</span></li></ol><p><span>Conversely, removing duplication (</span><a href='https://en.wikipedia.org/wiki/Don%27t_repeat_yourself'><span>DRY</span></a><span>-ing) drives technical design. When we remove duplication, we create a new code unit which we need to name and to place. This requires us to better understand our system. – We have to thank Kent Beck, J.B. Rainsberger and Martin Fowler for </span><a href='https://martinfowler.com/bliki/BeckDesignRules.html'><span>advancing our understanding</span></a><span> of this interplay between removing duplication and revealing intent.</span></p><p><span>However, remember that</span></p><blockquote><p><span>duplication is far cheaper than the wrong abstraction</span></p><p><span>– Sandi Metz, </span><a href='https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction' target='_blank' class='url'>https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction</a></p></blockquote><p><span>The rule of three is a good rule of thumb. If the abstraction is not crystal clear from two occurrences, wait for the third. In the meantime, keep duplications as close to each other as possible.</span></p><p>&nbsp;</p><h2 id='software-architecture'><span>Software Architecture</span></h2><p><span>Why talk about software architecture at all? Ensure long-term maintainability of a system. This can be broken down into at least two parts:</span></p><ol start='' ><li><span>It would be great, if we could limit the frequency of rude comments from successive maintainers when they try to understand what the system does </span><em><span>and why.</span></em></li><li><span>A good architecture restricts choices and supports decision making while developing software.</span></li></ol><p><span>But let’s start with the elements.</span></p><h3 id='low-coupling-high-cohesion----the-holy-grail'><span>Low Coupling, High Cohesion – The Holy Grail</span></h3><p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/CouplingVsCohesion.svg/2560px-CouplingVsCohesion.svg.png" referrerpolicy="no-referrer"></p><p><span>Source: </span><a href='https://en.wikipedia.org/wiki/Coupling_(computer_programming)' target='_blank' class='url'>https://en.wikipedia.org/wiki/Coupling_(computer_programming)</a></p><p><span>The notions of coupling &amp; cohesion are intertwined.</span></p><blockquote><p><span>Cohesion—the principle that “things that belong together should be kept together”—makes code easier to understand, debug, and test.</span></p><p><span>– Tim Ottinger, Jeff Langr. </span><a href='https://web.archive.org/web/20160702072107/https://pragprog.com/magazines/2010-12/cohesive-software-design' target='_blank' class='url'>https://web.archive.org/web/20160702072107/https://pragprog.com/magazines/2010-12/cohesive-software-design</a></p></blockquote><blockquote><p><span>The key question is: How much of one module must be known in order to understand another module? </span><em><span>The more that we must know of module B in order to understand module A, the more closely connected A is to B.</span></em><span> [emphasis preserved] // […] Obviously, what we are striving for is loosely coupled systems – that is, systems in which one can </span><em><span>study (or debug, or maintain)</span></em><span> [emphasis added] any one module without having to know very much about any other modules in the system. // […] If two modules are highly coupled, then there is a high probability that a programmer trying to modify one of them will have to make a change to the other. Clearly </span><em><span>total systems cost</span></em><span> [emphasis added] will be strongly influenced by the degree of coupling between modules.</span></p><p><span>– Yourdon, Constantine, 1979. Structured Design. Fundamentals of a Discipline of Computer Program and Systems Design. p 85</span></p></blockquote><h3 id='dependency-inversion-principle'><span>Dependency-Inversion Principle</span></h3><p><span>My favorite design principle to foster cohesion and reduce coupling is the DIP.</span></p><blockquote><p><span>High Level Modules Should Not Depend Upon Low Level Modules.</span><br/><span>Both Should Depend Upon Abstractions.</span></p><p><span>Abstractions Should Not Depend Upon Details.</span><br/><span>Details Should Depend Upon Abstractions.</span></p><p><span>– Robert C. Martin</span></p></blockquote><ul><li><a href='https://www.labri.fr/perso/clement/enseignements/ao/DIP.pdf'><span>Original article</span></a></li><li><a href='https://martinfowler.com/articles/dipInTheWild.html'><span>Very good discussion by Brett Schuchert</span></a></li></ul><p><span>There are many ways to implement the DIP, including </span></p><ul><li><a href='https://sourcemaking.com/design_patterns/observer'><span>Observer design pattern</span></a><span></span><br/><span>(remember decoupling error handling in </span><code>bestFetchEver</code><span> from Redux)</span></li><li><span>Dependency Injection</span></li></ul><p><span>Beware: neither dependency injection, nor any other technical facility implies that the </span><em><span>principle</span></em><span> of dependency inversion is followed.</span></p><h3 id='dependency-inverted-architecture'><span>Dependency-Inverted Architecture</span></h3><p><span>The Dependency-Inversion Principle is great design principle and a great guiding principle for achitecture. Its applications to full-blown architectures are known as</span></p><ul><li><a href='https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)'><span>Hexagonal Architecture</span></a><span> (aka &quot;Ports and Adapters&quot;)</span></li><li><a href='https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html'><span>Clean Architecture</span></a></li><li><span>and many others</span></li></ul><p><span>Despite the conceptual elegance, these architectures, when followed strictly, make you pay a huge cognitive tax because they make even simple things complicated.</span></p><p><span>Remember this?</span></p><div class="md-diagram-panel md-fences-adv-panel"><svg id="mermaidChart24" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="166" style="max-width: 417.3125px;" viewBox="-8 -8 417.3125 166"><style>#mermaidChart24{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaidChart24 .error-icon{fill:#e8e8e8;}#mermaidChart24 .error-text{fill:#f1908e;stroke:#f1908e;}#mermaidChart24 .edge-thickness-normal{stroke-width:2px;}#mermaidChart24 .edge-thickness-thick{stroke-width:3.5px;}#mermaidChart24 .edge-pattern-solid{stroke-dasharray:0;}#mermaidChart24 .edge-pattern-dashed{stroke-dasharray:3;}#mermaidChart24 .edge-pattern-dotted{stroke-dasharray:2;}#mermaidChart24 .marker{fill:#9370DB;}#mermaidChart24 .marker.cross{stroke:#9370DB;}#mermaidChart24 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaidChart24 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaidChart24 .label text{fill:#333;}#mermaidChart24 .node rect,#mermaidChart24 .node circle,#mermaidChart24 .node ellipse,#mermaidChart24 .node polygon,#mermaidChart24 .node path{fill:#BDD5EA;stroke:hsl(208,11.724137931%,72.9411764706%);stroke-width:1px;}#mermaidChart24 .node .label{text-align:center;}#mermaidChart24 .node.clickable{cursor:pointer;}#mermaidChart24 .arrowheadPath{fill:#b8bfc6;}#mermaidChart24 .edgePath .path{stroke:#9370DB;stroke-width:1.5px;}#mermaidChart24 .flowchart-link{stroke:#9370DB;fill:none;}#mermaidChart24 .edgeLabel{background-color:#f4f4f4;text-align:center;}#mermaidChart24 .edgeLabel rect{opacity:0.5;background-color:#f4f4f4;fill:#f4f4f4;}#mermaidChart24 .cluster rect{fill:#e8e8e8;stroke:hsl(0,0%,80.9803921569%);stroke-width:1px;}#mermaidChart24 .cluster text{fill:#b8bfc6;}#mermaidChart24 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:#e8e8e8;border:1px solid undefined;border-radius:2px;pointer-events:none;z-index:100;}#mermaidChart24:root{--mermaid-font-family:sans-serif;}#mermaidChart24:root{--mermaid-alt-font-family:sans-serif;}#mermaidChart24 flowchart{fill:apa;}</style><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath LS-AllocationController LE-FeatureToggleState" id="L-AllocationController-FeatureToggleState" style="opacity: 1;"><path class="path" d="M270.7724609375,54L218.2578125,79L160.53483072916666,104" marker-end="url(#arrowhead241)" style="fill:none"></path><defs><marker id="arrowhead241" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath LS-AllocationController LE-AllocationPicker" id="L-AllocationController-AllocationPicker" style="opacity: 1;"><path class="path" d="M323.8776041666667,54L329.0859375,79L329.0859375,104" marker-end="url(#arrowhead242)" style="fill:none"></path><defs><marker id="arrowhead242" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath LS-FeatureToggleUpdater LE-FeatureToggleState" id="L-FeatureToggleUpdater-FeatureToggleState" style="opacity: 1;"><path class="path" d="M97.4296875,54L97.4296875,79L102.63802083333333,104" marker-end="url(#arrowhead243)" style="fill:none"></path><defs><marker id="arrowhead243" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="flowchart-AllocationController-230" transform="translate(319.0859375,31)" style="opacity: 1;"><rect rx="0" ry="0" x="-82.2265625" y="-23" width="164.453125" height="46" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-72.2265625,-13)"><foreignObject width="144.453125" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">AllocationController</div></foreignObject></g></g></g><g class="node default" id="flowchart-FeatureToggleState-231" transform="translate(107.4296875,127)" style="opacity: 1;"><rect rx="0" ry="0" x="-79.234375" y="-23" width="158.46875" height="46" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-69.234375,-13)"><foreignObject width="138.46875" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">FeatureToggleState</div></foreignObject></g></g></g><g class="node default" id="flowchart-AllocationPicker-233" transform="translate(329.0859375,127)" style="opacity: 1;"><rect rx="0" ry="0" x="-67.8515625" y="-23" width="135.703125" height="46" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-57.8515625,-13)"><foreignObject width="115.703125" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">AllocationPicker</div></foreignObject></g></g></g><g class="node default" id="flowchart-FeatureToggleUpdater-234" transform="translate(97.4296875,31)" style="opacity: 1;"><rect rx="0" ry="0" x="-89.4296875" y="-23" width="178.859375" height="46" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-79.4296875,-13)"><foreignObject width="158.859375" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">FeatureToggleUpdater</div></foreignObject></g></g></g></g></g></g></svg></div><p><span>Or, at module level:</span></p><div class="md-diagram-panel md-fences-adv-panel"><svg id="mermaidChart25" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="166" style="max-width: 334.4765625px;" viewBox="-8 -8 334.4765625 166"><style>#mermaidChart25{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaidChart25 .error-icon{fill:#e8e8e8;}#mermaidChart25 .error-text{fill:#f1908e;stroke:#f1908e;}#mermaidChart25 .edge-thickness-normal{stroke-width:2px;}#mermaidChart25 .edge-thickness-thick{stroke-width:3.5px;}#mermaidChart25 .edge-pattern-solid{stroke-dasharray:0;}#mermaidChart25 .edge-pattern-dashed{stroke-dasharray:3;}#mermaidChart25 .edge-pattern-dotted{stroke-dasharray:2;}#mermaidChart25 .marker{fill:#9370DB;}#mermaidChart25 .marker.cross{stroke:#9370DB;}#mermaidChart25 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaidChart25 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaidChart25 .label text{fill:#333;}#mermaidChart25 .node rect,#mermaidChart25 .node circle,#mermaidChart25 .node ellipse,#mermaidChart25 .node polygon,#mermaidChart25 .node path{fill:#BDD5EA;stroke:hsl(208,11.724137931%,72.9411764706%);stroke-width:1px;}#mermaidChart25 .node .label{text-align:center;}#mermaidChart25 .node.clickable{cursor:pointer;}#mermaidChart25 .arrowheadPath{fill:#b8bfc6;}#mermaidChart25 .edgePath .path{stroke:#9370DB;stroke-width:1.5px;}#mermaidChart25 .flowchart-link{stroke:#9370DB;fill:none;}#mermaidChart25 .edgeLabel{background-color:#f4f4f4;text-align:center;}#mermaidChart25 .edgeLabel rect{opacity:0.5;background-color:#f4f4f4;fill:#f4f4f4;}#mermaidChart25 .cluster rect{fill:#e8e8e8;stroke:hsl(0,0%,80.9803921569%);stroke-width:1px;}#mermaidChart25 .cluster text{fill:#b8bfc6;}#mermaidChart25 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:#e8e8e8;border:1px solid undefined;border-radius:2px;pointer-events:none;z-index:100;}#mermaidChart25:root{--mermaid-font-family:sans-serif;}#mermaidChart25:root{--mermaid-alt-font-family:sans-serif;}#mermaidChart25 flowchart{fill:apa;}</style><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath LS-allocation-rest LE-feature-state" id="L-allocation-rest-feature-state" style="opacity: 1;"><path class="path" d="M201.6923828125,54L156.6484375,79L113.07747395833334,104" marker-end="url(#arrowhead252)" style="fill:none"></path><defs><marker id="arrowhead252" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath LS-allocation-rest LE-allocation-logic" id="L-allocation-rest-allocation-logic" style="opacity: 1;"><path class="path" d="M247.92447916666666,54L253.1328125,79L253.1328125,104" marker-end="url(#arrowhead253)" style="fill:none"></path><defs><marker id="arrowhead253" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath LS-feature-sync LE-feature-state" id="L-feature-sync-feature-state" style="opacity: 1;"><path class="path" d="M62.9921875,54L62.9921875,79L68.20052083333333,104" marker-end="url(#arrowhead254)" style="fill:none"></path><defs><marker id="arrowhead254" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="flowchart-allocation-rest-242" transform="translate(243.1328125,31)" style="opacity: 1;"><rect rx="0" ry="0" x="-62.3203125" y="-23" width="124.640625" height="46" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-52.3203125,-13)"><foreignObject width="104.640625" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">allocation-rest</div></foreignObject></g></g></g><g class="node default" id="flowchart-feature-state-243" transform="translate(72.9921875,127)" style="opacity: 1;"><rect rx="0" ry="0" x="-57.625" y="-23" width="115.25" height="46" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-47.625,-13)"><foreignObject width="95.25" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">feature-state</div></foreignObject></g></g></g><g class="node default" id="flowchart-allocation-logic-245" transform="translate(253.1328125,127)" style="opacity: 1;"><rect rx="0" ry="0" x="-65.34375" y="-23" width="130.6875" height="46" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-55.34375,-13)"><foreignObject width="110.6875" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">allocation-logic</div></foreignObject></g></g></g><g class="node default" id="flowchart-feature-sync-246" transform="translate(62.9921875,31)" style="opacity: 1;"><rect rx="0" ry="0" x="-54.9921875" y="-23" width="109.984375" height="46" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-44.9921875,-13)"><foreignObject width="89.984375" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">feature-sync</div></foreignObject></g></g></g></g></g></g></svg></div><p><span>Not only does the cognitive complexity explode for a non-trivial system. In my experience, oftentimes, following this architectural style blindly actually increases coupling. For instance, </span><code>AllocationController</code><span> and </span><code>AllocationPicker</code><span> are likely to change in tandem as our domain evolves. Spreading these two out over two modules only creates friction without any tangible benefits.</span></p><p><span>Instead, I suggest to only invert when needed and to keep things simple until then:</span></p><div class="md-diagram-panel md-fences-adv-panel"><svg id="mermaidChart26" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="166" style="max-width: 115px;" viewBox="-8 -8 115 166"><style>#mermaidChart26{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaidChart26 .error-icon{fill:#e8e8e8;}#mermaidChart26 .error-text{fill:#f1908e;stroke:#f1908e;}#mermaidChart26 .edge-thickness-normal{stroke-width:2px;}#mermaidChart26 .edge-thickness-thick{stroke-width:3.5px;}#mermaidChart26 .edge-pattern-solid{stroke-dasharray:0;}#mermaidChart26 .edge-pattern-dashed{stroke-dasharray:3;}#mermaidChart26 .edge-pattern-dotted{stroke-dasharray:2;}#mermaidChart26 .marker{fill:#9370DB;}#mermaidChart26 .marker.cross{stroke:#9370DB;}#mermaidChart26 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaidChart26 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaidChart26 .label text{fill:#333;}#mermaidChart26 .node rect,#mermaidChart26 .node circle,#mermaidChart26 .node ellipse,#mermaidChart26 .node polygon,#mermaidChart26 .node path{fill:#BDD5EA;stroke:hsl(208,11.724137931%,72.9411764706%);stroke-width:1px;}#mermaidChart26 .node .label{text-align:center;}#mermaidChart26 .node.clickable{cursor:pointer;}#mermaidChart26 .arrowheadPath{fill:#b8bfc6;}#mermaidChart26 .edgePath .path{stroke:#9370DB;stroke-width:1.5px;}#mermaidChart26 .flowchart-link{stroke:#9370DB;fill:none;}#mermaidChart26 .edgeLabel{background-color:#f4f4f4;text-align:center;}#mermaidChart26 .edgeLabel rect{opacity:0.5;background-color:#f4f4f4;fill:#f4f4f4;}#mermaidChart26 .cluster rect{fill:#e8e8e8;stroke:hsl(0,0%,80.9803921569%);stroke-width:1px;}#mermaidChart26 .cluster text{fill:#b8bfc6;}#mermaidChart26 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:#e8e8e8;border:1px solid undefined;border-radius:2px;pointer-events:none;z-index:100;}#mermaidChart26:root{--mermaid-font-family:sans-serif;}#mermaidChart26:root{--mermaid-alt-font-family:sans-serif;}#mermaidChart26 flowchart{fill:apa;}</style><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath LS-allocation LE-feature" id="L-allocation-feature" style="opacity: 1;"><path class="path" d="M53.5,54L53.5,79L53.5,104" marker-end="url(#arrowhead261)" style="fill:none"></path><defs><marker id="arrowhead261" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="flowchart-allocation-250" transform="translate(53.5,31)" style="opacity: 1;"><rect rx="0" ry="0" x="-45.5" y="-23" width="91" height="46" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-35.5,-13)"><foreignObject width="71" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">allocation</div></foreignObject></g></g></g><g class="node default" id="flowchart-feature-251" transform="translate(53.5,127)" style="opacity: 1;"><rect rx="0" ry="0" x="-36.5390625" y="-23" width="73.078125" height="46" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-26.5390625,-13)"><foreignObject width="53.078125" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">feature</div></foreignObject></g></g></g></g></g></g></svg></div><p><span>When is then? In this particular example: when incidental details of external APIs or details of updating feature state creep into </span><code>allocation</code><span>.</span></p><p><span>I understand that this approach is more complex than a hard rule and requires one to take more care when developing. But in my view this at least allows for a clean architecture without quickly becoming impractical. – This also ties in nicely with something that I have learned from Kent Beck: cohesion and coupling are hard to analyze statically, but are better understood dynamically, i.e. by observing how a system evolves, which change it must support. (Unfortunately I do not have a source for this.)</span></p><p>&nbsp;</p><h2 id='bonus'><span>Bonus</span></h2><h3 id='generative-testing----complement-to-example-based-testing'><span>Generative Testing – Complement to Example-Based Testing</span></h3><p><span>aka property-based testing</span>
+<span>Invented by John Hughes: </span><a href='https://en.wikipedia.org/wiki/QuickCheck'><span>QuickCheck</span></a><span> (Haskell)</span></p><blockquote><p><span>Property based testing is the construction of tests such that, when these tests are fuzzed, failures in the test reveal problems with the system under test.</span></p><p><span>– David R. MacIver, </span><a href='https://hypothesis.works/articles/what-is-property-based-testing/' target='_blank' class='url'>https://hypothesis.works/articles/what-is-property-based-testing/</a></p></blockquote><p><span>Collection of ressources on generative testing: </span><a href='https://jqwik.net/property-based-testing.html' target='_blank' class='url'>https://jqwik.net/property-based-testing.html</a></p><p><span>Example tools:</span></p><ul><li><a href='https://jqwik.net/'><span>jqwik</span></a><span> (Java)</span></li><li><a href='https://jsverify.github.io/'><span>JSVerify</span></a><span> (JavaScript)</span></li></ul><p>&nbsp;</p><h3 id='mutation-testing----obscure-conceptually-fascinating-technique'><span>Mutation Testing – Obscure, Conceptually Fascinating Technique</span></h3><blockquote><p><span>Bugs, or </span><em><span>mutants</span></em><span>, are automatically inserted into your production code. Your tests are run for each mutant. If your tests </span><em><span>fail</span></em><span> then the mutant is </span><em><span>killed</span></em><span>. If your tests passed, the mutant </span><em><span>survived</span></em><span>. The higher the percentage of mutants killed, the more </span><em><span>effective</span></em><span> your tests are.</span></p><p><span>– </span><a href='https://stryker-mutator.io/docs/' target='_blank' class='url'>https://stryker-mutator.io/docs/</a></p></blockquote><p><span>Example tools:</span></p><ul><li><a href='http://pitest.org/'><span>PIT</span></a><span> (Java)</span></li><li><a href='https://stryker-mutator.github.io/'><span>Stryker</span></a><span> (JavaScript)</span></li></ul><p>&nbsp;</p><h3 id='composed-method-pattern'><span>Composed Method Pattern</span></h3><blockquote><p><span>Divide your program into methods that perform one identifiable task. Keep all of the operations in a method at the same level of abstraction. This will naturally result in programs with many small methods, each a few lines long.</span></p><p><span>When you use ExtractMethod a bunch of times on a method the original method becomes a ComposedMethod.</span></p><p><span>– Kent Beck, </span><a href='https://wiki.c2.com/?ComposedMethod' target='_blank' class='url'>https://wiki.c2.com/?ComposedMethod</a></p></blockquote><p><span>Of course, this applies not only to operations. For instance, compare this React component …</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="javascript" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">&lt;&gt;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-operator">&lt;</span><span class="cm-variable">div</span> <span class="cm-variable">data</span><span class="cm-operator">-</span><span class="cm-variable">testid</span><span class="cm-operator">=</span><span class="cm-string">"allocation-c020b901"</span><span class="cm-operator">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">&lt;</span><span class="cm-variable">Card</span><span class="cm-operator">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">Best</span> <span class="cm-variable">rate</span>: {<span class="cm-variable">bestAllocation</span>.<span class="cm-property">rate</span> <span class="cm-operator">&amp;&amp;</span> <span class="cm-variable">bestAllocation</span>.<span class="cm-property">rate</span>.<span class="cm-property">toFixed</span>(<span class="cm-number">2</span>)}<span class="cm-operator">%</span> ({<span class="cm-property">bestAllocation</span>.<span class="cm-variable">name</span>})</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">&lt;</span><span class="cm-string-2">/Card&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-operator">&lt;</span><span class="cm-string-2">/div&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  {<span class="cm-variable">features</span>[<span class="cm-variable">FEATURES</span>.<span class="cm-property">MULTIPLE_TIERS</span>] <span class="cm-operator">===</span> <span class="cm-string">"on"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">?</span> <span class="cm-operator">&lt;</span><span class="cm-variable">div</span> <span class="cm-variable">className</span><span class="cm-operator">=</span><span class="cm-string">"pt-2"</span><span class="cm-operator">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">&lt;</span><span class="cm-variable">Card</span><span class="cm-operator">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">&lt;</span><span class="cm-variable">InputWithLabel</span> {<span class="cm-meta">...</span>} <span class="cm-string-2">/&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">&lt;</span><span class="cm-variable">div</span> <span class="cm-variable">className</span><span class="cm-operator">=</span><span class="cm-string">"pt-4"</span><span class="cm-operator">&gt;&lt;</span><span class="cm-variable">AllocationsTable</span> <span class="cm-variable">allocations</span><span class="cm-operator">=</span>{<span class="cm-property">allocations</span>}<span class="cm-operator">/&gt;&lt;</span><span class="cm-string-2">/div&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">&lt;</span><span class="cm-string-2">/Card&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-operator">&lt;</span><span class="cm-string-2">/div&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  : <span class="cm-atom">null</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-operator">&lt;</span><span class="cm-variable">div</span> <span class="cm-variable">className</span><span class="cm-operator">=</span><span class="cm-string">"pt-2"</span><span class="cm-operator">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">&lt;</span><span class="cm-variable">Card</span><span class="cm-operator">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-operator">&lt;</span><span class="cm-variable">p</span><span class="cm-operator">&gt;</span><span class="cm-variable">WAGMI</span><span class="cm-operator">&lt;</span><span class="cm-string-2">/p&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">&lt;</span><span class="cm-string-2">/Card&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-operator">&lt;</span><span class="cm-string-2">/div&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">&lt;</span><span class="cm-string-2">/&gt;</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 528px;"></div><div class="CodeMirror-gutters" style="display: none; height: 528px;"></div></div></div></pre><p><span>to this …</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="javascript"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">&lt;&gt;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-operator">&lt;</span><span class="cm-variable">Card</span><span class="cm-operator">&gt;&lt;</span><span class="cm-variable">BestRateInfo</span><span class="cm-operator">/&gt;&lt;</span><span class="cm-string-2">/Card&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  {<span class="cm-variable">features</span>[<span class="cm-variable">FEATURES</span>.<span class="cm-property">MULTIPLE_TIERS</span>] <span class="cm-operator">===</span> <span class="cm-string">"on"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">?</span> <span class="cm-operator">&lt;</span><span class="cm-variable">div</span> <span class="cm-variable">className</span><span class="cm-operator">=</span><span class="cm-string">"pt-2"</span><span class="cm-operator">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">&lt;</span><span class="cm-variable">Card</span><span class="cm-operator">&gt;&lt;</span><span class="cm-variable">AllocationsCalculator</span><span class="cm-operator">/&gt;&lt;</span><span class="cm-string-2">/Card&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-operator">&lt;</span><span class="cm-string-2">/div&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  : <span class="cm-atom">null</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-operator">&lt;</span><span class="cm-variable">div</span> <span class="cm-variable">className</span><span class="cm-operator">=</span><span class="cm-string">"pt-2"</span><span class="cm-operator">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">&lt;</span><span class="cm-variable">InfoCard</span><span class="cm-operator">/&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-operator">&lt;</span><span class="cm-string-2">/div&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">&lt;</span><span class="cm-string-2">/&gt;</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 288px;"></div><div class="CodeMirror-gutters" style="display: none; height: 288px;"></div></div></div></pre><h2 id='fun-bits'><span>Fun Bits</span></h2><h3 id='exploratory-testing'><span>Exploratory Testing</span></h3><p><span>Bach brothers demonstrating Exploratory Testing with the Easy button.</span><br/><a href='https://youtu.be/Vy0I2SB5OLo' target='_blank' class='url'>https://youtu.be/Vy0I2SB5OLo</a></p><h3 id='yak-shaving'><span>Yak Shaving</span></h3><p><span>Example usage: «I wasted hours shaving yaks.»</span></p><p><span>Goes back to Seth Godin: </span><a href='http://sethgodin.typepad.com/seths_blog/2005/03/dont_shave_that.html'><span>Don’t shave that yak!</span></a><span> </span></p><p>&nbsp;</p></div></div>
+</body>
+</html>
