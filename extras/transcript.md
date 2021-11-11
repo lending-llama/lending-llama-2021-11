@@ -1,6 +1,6 @@
 # Technical Practices for Agile Development
 
-Alex Bepple
+Alex Bepple  
 Last update: 11 November 2021
 
 [TOC]
