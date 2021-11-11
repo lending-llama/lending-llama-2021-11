@@ -24,7 +24,7 @@ The solution: [Trunk-Based Development](https://trunkbaseddevelopment.com/) usin
 
 ## Test-Driven Development
 
-Core loop: <span style="color:red">Red</span> → <span style="color:green">Green</span> → <span style="color:blue">Refactor</span>.
+Core loop: <span style="color:red">Red</span> → <span style="color:green">Green</span> → <span style="color:blue">Refactor</span>.  
 Do not forget _refactoring!_
 
 Seeing a test <span style="color:red">fail</span> is essential. It ensures that you are testing what you think you are testing. You may have written a dead test, a tautological test, executed the wrong thing, etc. (If you happen to write a test _after_ the implementation, do yourself a favor: break the code and see the test fail.)
@@ -35,14 +35,14 @@ TDD can be applied at different levels: from micro tests ("unit tests", "narrow 
 
 ### Micro Patterns
 
-_Obvious implementation_
+_Obvious implementation_  
 When bar is <span style="color:red">red</span>, just write the <span style="color:green">correct</span> implementation, if you can do it in timely fashion.
 
-_Fake it till you make it_
-When <span style="color:red">red</span>, quickly get to <span style="color:green">green</span> using a fake, continue engineering the proper implementation by slowly reverse-engeineering the fake, while staying <span style="color:green">green</span>.
+_Fake it till you make it_  
+When <span style="color:red">red</span>, quickly get to <span style="color:green">green</span> using a fake, continue engineering the proper implementation by slowly reverse-engeineering the fake, while staying <span style="color:green">green</span>.  
 Take a look at [Wikipedia article](https://en.wikipedia.org/wiki/Fake_it_till_you_make_it) for interesting cultural references.
 
-_Triangulation_ 
+_Triangulation_   
 Start when <span style="color:green">green</span>. Add another <span style="color:red">red</span> test in order to force your code to move in the direction of the desired behavior.
 
 Rock climber metaphor … When you are doing something easy and you are having a great day, nothing wrong with _obvious implementation._ The less certain you are, the more safety you can give yourself with either _fake it till you make it_ or _triangulation._
@@ -54,7 +54,7 @@ Rock climber metaphor … When you are doing something easy and you are having a
 > to refactor _(vt, vi)_ 
 > improve structure of code without changing observable behavior
 
-Purpose of improvement: ease maintenance. 
+Purpose of improvement: ease maintenance.  
 Vectors of attack: 
 
 * make code easier to understand, e.g. improve names, hide incidental details
@@ -74,18 +74,13 @@ If you want inspiration for how to refactor legacy code, Michael Feathers’ «[
 
 Good automated tests are FIRST.
 
-* Fast
+* Fast  
   For micro tests a workable rule of thumb: <1 ms per test. Reasoning: a healthy-sized code base can have a couple of thousands of micro tests. These should be able to run within a few seconds.
-
 * Isolated
-
-* Repeatable
-  This becomes a particular challenge with increasing test scope. Indirect external inputs in particular love to be sources of flakiness. Typical examples: system clock, external services. With test scope, technology-induced flakiness increases, too. Very common pain point: asynchronicity in browser.
-
+* Repeatable  
+  This becomes a particular challenge with increasing test scope. Indirect external inputs in particular love to be sources of flakiness. Typical examples: system clock, external services. With test scope, technology-induced flakiness increases, too. Very common pain point: asynchronicity in browser.  
   Remedy: prefer micro tests of pure functions whenever possible. Also see warning against too large test scopes.
-
 * Self-verifying
-
 * Timely
 
 ### Strategy for Test Suites
@@ -174,10 +169,10 @@ The notions of coupling & cohesion are intertwined.
 
 My favorite design principle to foster cohesion and reduce coupling is the DIP.
 
-> High Level Modules Should Not Depend Upon Low Level Modules. 
+> High Level Modules Should Not Depend Upon Low Level Modules.  
 > Both Should Depend Upon Abstractions.
 >
-> Abstractions Should Not Depend Upon Details. 
+> Abstractions Should Not Depend Upon Details.  
 > Details Should Depend Upon Abstractions.
 >
 > – Robert C. Martin
@@ -187,7 +182,7 @@ My favorite design principle to foster cohesion and reduce coupling is the DIP.
 
 There are many ways to implement the DIP, including 
 
-* [Observer design pattern](https://sourcemaking.com/design_patterns/observer) 
+* [Observer design pattern](https://sourcemaking.com/design_patterns/observer)  
   (remember decoupling error handling in `bestFetchEver` from Redux)
 * Dependency Injection
 
@@ -272,6 +267,7 @@ Example tools:
 ### Composed Method Pattern
 
 > Divide your program into methods that perform one identifiable task. Keep all of the operations in a method at the same level of abstraction. This will naturally result in programs with many small methods, each a few lines long.
+>
 > When you use ExtractMethod a bunch of times on a method the original method becomes a ComposedMethod.
 >
 > – Kent Beck, https://wiki.c2.com/?ComposedMethod
@@ -323,7 +319,7 @@ to this …
 
 ### Exploratory Testing
 
-Bach brothers demonstrating Exploratory Testing with the Easy button.
+Bach brothers demonstrating Exploratory Testing with the Easy button.  
 https://youtu.be/Vy0I2SB5OLo
 
 ### Yak Shaving
