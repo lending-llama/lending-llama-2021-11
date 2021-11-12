@@ -159,7 +159,7 @@ The notions of coupling & cohesion are intertwined.
 
 > Cohesion—the principle that “things that belong together should be kept together”—makes code easier to understand, debug, and test.
 >
-> – Tim Ottinger, Jeff Langr. https://web.archive.org/web/20160702072107/https://pragprog.com/magazines/2010-12/cohesive-software-design
+> – Tim Ottinger, Jeff Langr. https://web.archive.org/web/20160702072107/https://pragprog.com/magazines/2010-12/cohesive-software-design ([PDF](https://langrsoft.com/ftp/pragpub-2010-12.pdf))
 
 > The key question is: How much of one module must be known in order to understand another module? _The more that we must know of module B in order to understand module A, the more closely connected A is to B._ [emphasis preserved] // […] Obviously, what we are striving for is loosely coupled systems – that is, systems in which one can _study (or debug, or maintain)_ [emphasis added] any one module without having to know very much about any other modules in the system. // […] If two modules are highly coupled, then there is a high probability that a programmer trying to modify one of them will have to make a change to the other. Clearly _total systems cost_ [emphasis added] will be strongly influenced by the degree of coupling between modules.
 >
