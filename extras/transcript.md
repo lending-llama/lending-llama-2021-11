@@ -177,7 +177,7 @@ My favorite design principle to foster cohesion and reduce coupling is the DIP.
 >
 > – Robert C. Martin
 
-* [Original article](https://www.labri.fr/perso/clement/enseignements/ao/DIP.pdf)
+* [Original article](https://arweave.net/7CBm9EIGSzNZdiVZNJpXEXx79CI9MOPQP-RBkkLmYrE)
 * [Very good discussion by Brett Schuchert](https://martinfowler.com/articles/dipInTheWild.html)
 
 There are many ways to implement the DIP, including 
